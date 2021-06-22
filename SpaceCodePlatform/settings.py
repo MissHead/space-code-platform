@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'SpaceCodePlatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'space_code_database',
+        'NAME': 'space_database',
         'HOST': '127.0.0.1',
         'PORT': 27017,
     }
