@@ -28,34 +28,34 @@ class IntegerRangeField(models.IntegerField):
 
 class Pilot(models.Model):
     pilot_certification = models.BigIntegerField(blank=False, validators=[certification_validate])
-    name = models.CharField(max_length=70, blank=False, default='')
+    name = models.CharField(max_length=70, blank=False)
     age = IntegerRangeField(min_value=1, max_value=100)
     credits = models.IntegerField(blank=False, default=0)
-    location_planet = models.CharField(max_length=70, blank=False, default='')
+    location_planet = models.CharField(max_length=70, blank=False)
     created_at = models.DateTimeField(blank=False, default=timezone.now)
     disabled_at = models.DateTimeField(blank=False, default=None)
 
 
 class Resource(models.Model):
-    name = models.CharField(max_length=70, blank=False, default='')
-    weight = models.IntegerField(blank=False, default=0)
+    name = models.CharField(max_length=70, blank=False)
+    weight = models.IntegerField(blank=False)
     created_at = models.DateTimeField(blank=False, default=timezone.now)
     disabled_at = models.DateTimeField(blank=False, default=None)
 
 
 class Contract(models.Model):
-    description = models.CharField(max_length=200,blank=False, default='')
+    description = models.CharField(max_length=200,blank=False)
     payload = models.JSONField(blank=False, default=dict)
-    origin_planet = models.CharField(max_length=70, blank=False, default='')
-    destination_planet = models.CharField(max_length=70, blank=False, default='')
-    value = models.IntegerField(blank=False, default=0)
+    origin_planet = models.CharField(max_length=70, blank=False)
+    destination_planet = models.CharField(max_length=70, blank=False)
+    value = models.IntegerField(blank=False)
     created_at = models.DateTimeField(blank=False, default=timezone.now)
     disabled_at = models.DateTimeField(blank=False, default=None)
 
 
 class Ship(models.Model):
-    fuel_capacity = models.IntegerField(blank=False, default=0)
-    fuel_level = models.IntegerField(blank=False, default=0)
-    weight_capacity = models.IntegerField(blank=False, default=0)
+    fuel_capacity = models.IntegerField(blank=False)
+    fuel_level = models.IntegerField(blank=False)
+    weight_capacity = models.IntegerField(blank=False)
     created_at = models.DateTimeField(blank=False, default=timezone.now)
     disabled_at = models.DateTimeField(blank=False, default=None)
