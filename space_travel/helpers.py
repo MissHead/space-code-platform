@@ -1,6 +1,4 @@
 import random
-import time
-
 
 
 def certification_generate():
@@ -8,7 +6,7 @@ def certification_generate():
         certification = [random.randint(0, 6) for i in range(6)]
         if certification != certification[::-1]:
             break
-    value = sum((certification[num] * ((7 + 1) - num) for num in range(0, 7)))
+    value = sum((certification[num] * ((6 + 1) - num) for num in range(0, 6)))
     digit = ((value * 10) % 7) % 10
     certification.append(digit)
     result = ''.join(map(str, certification))
@@ -21,16 +19,16 @@ def certification_validate(numbers):
         return False
     if certification == certification[::-1]:
         return False
-    value = sum((certification[num] * ((7+1) - num) for num in range(0, 7)))
+    value = sum((certification[num] * ((6+1) - num) for num in range(0, 6)))
     digit = ((value * 10) % 7) % 10
-    if digit != certification[7]:
+    if digit != certification[6]:
         return False
     return True
 
 
 def planet_name_generate():
     planets = []
-    with open("planets.txt", "r") as f:
+    with open("space_travel/planets.txt", "r") as f:
         raw = f.read()
     planets = raw.split("\n")
     total_syllables = 0
@@ -83,7 +81,7 @@ def planet_name_generate():
 
 def resource_name_generate():
     resource = []
-    with open("objects.txt", "r") as f:
+    with open("space_travel/objects.txt", "r") as f:
         raw = f.read()
     resource = raw.split("\n")
     total_syllables = 0

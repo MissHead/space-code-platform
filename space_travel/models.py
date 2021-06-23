@@ -13,7 +13,7 @@ class IntegerRangeField(models.IntegerField):
 
 
 class Pilot(models.Model):
-    pilot_certification = models.BigIntegerField(blank=False, validators=[certification_validate])
+    pilot_certification = models.CharField(max_length=7, blank=False, validators=[certification_validate])
     name = models.CharField(max_length=70, blank=False)
     age = IntegerRangeField(min_value=1, max_value=100)
     credits = models.IntegerField(blank=False, default=0)
