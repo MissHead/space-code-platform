@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 
 
@@ -31,22 +32,30 @@ class Pilot(models.Model):
     age = IntegerRangeField(min_value=1, max_value=100)
     credits = models.IntegerField(blank=False, default=0)
     location_planet = models.CharField(max_length=70, blank=False, default='')
+    created_at = models.DateTimeField(blank=False, default=timezone.now)
+    disabled_at = models.DateTimeField(blank=False, default=None)
 
 
 class Resource(models.Model):
     name = models.CharField(max_length=70, blank=False, default='')
     weight = models.IntegerField(blank=False, default=0)
+    created_at = models.DateTimeField(blank=False, default=timezone.now)
+    disabled_at = models.DateTimeField(blank=False, default=None)
 
 
-class Contracts(models.Model):
+class Contract(models.Model):
     description = models.CharField(max_length=200,blank=False, default='')
-    payload = models.JSONField(blank=False, default={})
+    payload = models.JSONField(blank=False, default=dict)
     origin_planet = models.CharField(max_length=70, blank=False, default='')
     destination_planet = models.CharField(max_length=70, blank=False, default='')
     value = models.IntegerField(blank=False, default=0)
+    created_at = models.DateTimeField(blank=False, default=timezone.now)
+    disabled_at = models.DateTimeField(blank=False, default=None)
 
 
 class Ship(models.Model):
     fuel_capacity = models.IntegerField(blank=False, default=0)
     fuel_level = models.IntegerField(blank=False, default=0)
     weight_capacity = models.IntegerField(blank=False, default=0)
+    created_at = models.DateTimeField(blank=False, default=timezone.now)
+    disabled_at = models.DateTimeField(blank=False, default=None)
