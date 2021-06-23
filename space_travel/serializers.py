@@ -29,7 +29,7 @@ class ResourceSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'weight'
+            'weight',
             'created_at',
             'disabled_at'
         )
