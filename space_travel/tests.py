@@ -41,10 +41,20 @@ class ContractTestCase(TestCase):
     def setUp(self):
         Contract.objects.create(
             {
-                "description": description_generate()
+                "description": description_generate(),
+                "payload": {"resources": [Resource.objects.all()[0]]},
+                "origin_planet": planet_name_generate(),
+                "destination_planet": planet_name_generate(),
+                "value": randint(100, 999999),
             }
         )
 
 class ShipTestCase(TestCase):
     def setUp(self):
-        Ship.objects.create()
+        Ship.objects.create(
+            {
+                "fuel_capacity": randint(1, 100),
+                "fuel_level": randint(1, 100),
+                "weight_capacity": randint(1, 100),
+            }
+        )
