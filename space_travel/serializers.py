@@ -13,6 +13,7 @@ class PilotSerializer(serializers.ModelSerializer):
         model = Pilot
         fields = (
             'id',
+            'pilot_certification',
             'name',
             'age',
             'credits',
