@@ -1,20 +1,6 @@
 from django.utils import timezone
 from django.db import models
-
-
-def certification_validate(numbers):
-    certification = [int(char) for char in numbers if char.isdigit()]
-    if len(certification) != 7:
-        return False
-    if certification == certification[::-1]:
-        return False
-    for i in range(6, 7):
-        value = sum((certification[num] * ((i+1) - num) for num in range(0, i)))
-        digit = ((value * 10) % 11) % 10
-        if digit != certification[i]:
-            return False
-    return True
-
+from space_travel.helpers import certification_validate
 
 class IntegerRangeField(models.IntegerField):
     def __init__(self, verbose_name=None, name=None, min_value=None, max_value=None, **kwargs):
