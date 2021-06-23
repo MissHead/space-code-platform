@@ -60,7 +60,5 @@ class ShipSerializer(serializers.ModelSerializer):
             'id',
             'fuel_capacity',
             'fuel_level',
-            'weight_capacity',
-            'created_at',
-            'disabled_at'
+            'weight_capacity'
         )

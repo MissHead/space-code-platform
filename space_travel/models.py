@@ -39,9 +39,7 @@ class Contract(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
 
-class Ship(models.Model):
+class Ship(Pilot):
     fuel_capacity = models.IntegerField(blank=False)
     fuel_level = models.IntegerField(blank=False)
     weight_capacity = models.IntegerField(blank=False)
-    created_at = models.DateTimeField(blank=False, default=timezone.now)
-    disabled_at = models.DateTimeField(blank=False, default=None)
