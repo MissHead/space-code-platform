@@ -13,7 +13,8 @@ from space_travel.models import (
     Contract,
     Ship,
     Planet,
-    Travel
+    Travel,
+    FuelRefill
 )
 from space_travel.serializers import (
     PilotSerializer,
@@ -21,7 +22,8 @@ from space_travel.serializers import (
     ContractSerializer,
     ShipSerializer,
     PlanetSerializer,
-    TravelSerializer
+    TravelSerializer,
+    FuelRefillSerializer
 )
 from rest_framework.decorators import api_view
 
@@ -101,6 +103,7 @@ def resource_controller(request):
         resource_serializer = ResourceSerializer(data=data)
         if resource_serializer.is_valid():
             resource_serializer.save()
+            Resource.objects.create(name=resource_serializer.data['name'], id=resource_serializer.data['id'])
             return JsonResponse(resource_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(resource_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -157,8 +160,16 @@ def contract_handle(request, _id):
         return JsonResponse(contract_serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'PUT':
         data = contract_serializer.data
-        data.pop('disabled_at', None)
-        data.update(JSONParser().parse(request))
+        request_data = JSONParser().parse(request)
+        pilot = Contract.objects.filter(pilot=data['id'])
+        if pilot.count() > 0:
+            pilot_serializer = ContractSerializer(pilot[0])
+            if 'status' in request_data:
+                if not request_data['status']:
+                    credits = pilot_serializer.data['credits'] + data['value']
+                    Pilot.objects.update(id=pilot_serializer.data['id'], credits=credits)
+                    request_data['disabled_at'] = datetime.datetime.now()
+        data.update(request_data)
         contract_serializer = ContractSerializer(contract, data)
         if contract_serializer.is_valid():
             contract_serializer.save()
@@ -291,6 +302,47 @@ def travel_handle(request, _id):
             return JsonResponse(travel_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         travel.delete()
+        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET', 'POST'])
+def fuel_refill_controller(request):
+    if request.method == 'GET':
+        fuel_refills = FuelRefill.objects.filter(disabled_at=None)
+        fuel_refills_serializer = FuelRefillSerializer(fuel_refills, many=True)
+        return JsonResponse(fuel_refills_serializer.data, safe=False)
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        fuel_refill_serializer = FuelRefillSerializer(data=data)
+        if fuel_refill_serializer.is_valid():
+            fuel_refill_serializer.save()
+            return JsonResponse(fuel_refill_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return JsonResponse(fuel_refill_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def fuel_refill_handle(request, _id):
+    fuel_refill = FuelRefill.objects.get(pk=_id)
+    fuel_refill_serializer = FuelRefillSerializer(fuel_refill)
+    if request.method == 'GET':
+        return JsonResponse(fuel_refill_serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'PUT':
+        data = fuel_refill_serializer.data
+        data.pop('disabled_at', None)
+        data.update(JSONParser().parse(request))
+        fuel_refill_serializer = FuelRefillSerializer(fuel_refill, data)
+        if fuel_refill_serializer.is_valid():
+            fuel_refill_serializer.save()
+            return JsonResponse(fuel_refill_serializer.data, status=status.HTTP_200_OK)
+        else:
+            return JsonResponse(fuel_refill_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        fuel_refill.delete()
         return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)

@@ -5,7 +5,8 @@ from space_travel.models import (
     Contract,
     Ship,
     Planet,
-    Travel
+    Travel,
+    FuelRefill
 )
 
 
@@ -43,6 +44,10 @@ class PilotSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Invalid planet id.")
         return data
 
+    def validate_credits(self, data):
+        if len(str(data)) < 3:
+            raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
+
 
 class ResourceSerializer(serializers.ModelSerializer):
 
@@ -55,6 +60,10 @@ class ResourceSerializer(serializers.ModelSerializer):
             'created_at',
             'disabled_at'
         )
+
+    def create(self, data):
+        data['id'] = Planet.objects.all().last().id + 1
+        return data
 
 
 class ContractSerializer(serializers.ModelSerializer):
@@ -70,6 +79,7 @@ class ContractSerializer(serializers.ModelSerializer):
             'value',
             'pilot',
             'travel',
+            'status',
             'created_at',
             'disabled_at'
         )
@@ -98,6 +108,9 @@ class ContractSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Invalid planet id.")
         return data
 
+    def validate_value(self, data):
+        if len(str(data)) < 3:
+            raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
 
 class ShipSerializer(serializers.ModelSerializer):
 
@@ -160,3 +173,24 @@ class TravelSerializer(serializers.ModelSerializer):
         except Exception:
             raise serializers.ValidationError("Invalid planet id.")
         return data
+
+    def validate_fuel_costs(self, data):
+        if len(str(data)) < 3:
+            raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
+
+
+class FuelRefillSerializer(serializers.Serializer):
+
+    class Meta:
+        model = FuelRefill
+        fields = (
+            'pilot',
+            'value',
+            'location_planet',
+            'created_at',
+            'disabled_at'
+        )
+
+    def validate_value(self, data):
+        if len(str(data)) < 3:
+            raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")

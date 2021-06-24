@@ -15,5 +15,7 @@ urlpatterns = [
     url(r'^planet$', views.planet_controller),
     url(r'^planet/(?P<_id>[0-9]+)$', views.planet_handle),
     url(r'^travel$', views.travel_controller),
-    url(r'^travel/(?P<_id>[0-9]+)$', views.travel_handle)
+    url(r'^travel/(?P<_id>[0-9]+)$', views.travel_handle),
+    url(r'^fuel_refill$', views.fuel_refill_controller),
+    url(r'^fuel_refill/(?P<_id>[0-9]+)$', views.fuel_refill_handle)
 ]

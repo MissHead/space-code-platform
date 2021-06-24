@@ -62,7 +62,7 @@ def planet_name_generate():
     suffix_index = random.randint(0, len(suffixes) - 1)
     planet_name += " "
     planet_name += suffixes[suffix_index]
-    return planet_name
+    return planet_name.rstrip()
 
 
 def resource_name_generate():
@@ -103,7 +103,6 @@ def resource_name_generate():
         "IX", "",
         "D", "",
         "gold", ""
-        "", ""
     ]
     length = random.randint(2, 3)
     initial = random.randint(0, size - 2)
@@ -116,7 +115,7 @@ def resource_name_generate():
     suffix_index = random.randint(0, len(suffixes) - 1)
     resource_name += " "
     resource_name += suffixes[suffix_index]
-    return resource_name
+    return resource_name.rstrip()
 
 
 def description_generate():

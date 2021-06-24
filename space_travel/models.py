@@ -89,3 +89,15 @@ class Ship(models.Model):
     def delete(self):
         self.disabled_at = datetime.datetime.now()
         self.save()
+
+
+class FuelRefill(models.Model):
+    pilot = models.ForeignKey('Pilot', on_delete=models.CASCADE, blank=False)
+    value = models.IntegerField(blank=False)
+    location_planet = models.ForeignKey('Planet', related_name='%(class)s_location', on_delete=models.CASCADE, blank=False)
+    created_at = models.DateTimeField(blank=False, default=timezone.now)
+    disabled_at = models.DateTimeField(blank=False, default=None)
+
+    def delete(self):
+        self.disabled_at = datetime.datetime.now()
+        self.save()
