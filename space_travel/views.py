@@ -371,3 +371,85 @@ def fuel_refill_handle(request, _id):
         return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET'])
+def report_resource_weight(request):
+    if request.method == 'GET':
+        report = list()
+        for planet in Planet.objects.all():
+            resources_sent = dict()
+            contracts_sent = Contract.objects.filter(disabled_at__isnull=False, origin_planet=planet.id)
+            for contract in contracts_sent:
+                resources = contract.payload['resources']
+                for r in resources:
+                    resource = Resource.objects.get(pk=r)
+                    if resource.name not in resources_sent.keys():
+                        resources_sent.update({resource.name: resource.weight})
+                    else:
+                        total_weight = resources_sent[resource.name] + resource.weight
+                        resources_sent.update({resource.name: total_weight})
+            resources_received = dict()
+            contracts_received = Contract.objects.filter(disabled_at__isnull=False, destination_planet=planet.id)
+            for contract in contracts_received:
+                resources = contract.payload['resources']
+                for r in resources:
+                    resource = Resource.objects.get(pk=r)
+                    if resource.name not in resources_received.keys():
+                        resources_received.update({resource.name: resource.weight})
+                    else:
+                        total_weight = resources_received[resource.name] + resource.weight
+                        resources_received.update({resource.name: total_weight})
+            report.append(
+                {
+                    planet.name: {
+                        "sent": resources_sent,
+                        "received": resources_received
+                    }
+                }
+            )
+        return JsonResponse(report, status=status.HTTP_200_OK, safe=False)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET'])
+def report_resource_percentage(request):
+    if request.method == 'GET':
+        report = list()
+        resources_transported = dict()
+        resources_total = dict()
+        for pilot in Pilot.objects.all():
+            for resource in Resource.objects.all():
+                
+                contracts = Contract.objects.filter(disabled_at__isnull=False, pilot=pilot.id)
+                for contract in contracts:
+                    resources = contract.payload['resources']
+                    for r in resources:
+                        if resource.name not in resources_total.keys():
+                            resources_total.update({resource.name: resource.weight})
+                        else:
+                            total_weight = resources_total[resource.name] + resource.weight
+                            resources_total.update({resource.name: total_weight})
+                for contract in contracts:
+                    resources = contract.payload['resources']
+                    for r in resources:
+                        resource = Resource.objects.get(pk=r)
+                        if resource.name in resources_total.keys():
+                            resources_transported.update({resource.name: '{}%'.format(int(resource.weight/resources_total[resource.name]*100))})
+            report.append(
+                {
+                    pilot.name: resources_transported
+                }
+            )
+        return JsonResponse(report, status=status.HTTP_200_OK, safe=False)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET'])
+def report_contracts(request):
+    if request.method == 'GET':
+        Contract.objects.all()
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
