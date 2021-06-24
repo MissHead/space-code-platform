@@ -47,6 +47,7 @@ class PilotSerializer(serializers.ModelSerializer):
     def validate_credits(self, data):
         if len(str(data)) < 3:
             raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
+        return data
 
 
 class ResourceSerializer(serializers.ModelSerializer):
@@ -111,6 +112,7 @@ class ContractSerializer(serializers.ModelSerializer):
     def validate_value(self, data):
         if len(str(data)) < 3:
             raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
+        return data
 
 class ShipSerializer(serializers.ModelSerializer):
 
@@ -121,7 +123,9 @@ class ShipSerializer(serializers.ModelSerializer):
             'fuel_capacity',
             'fuel_level',
             'weight_capacity',
-            'pilot'
+            'pilot',
+            'created_at',
+            'disabled_at'
         )
 
     def validate_pilot(self, data):
@@ -177,13 +181,15 @@ class TravelSerializer(serializers.ModelSerializer):
     def validate_fuel_costs(self, data):
         if len(str(data)) < 3:
             raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
+        return data
 
 
-class FuelRefillSerializer(serializers.Serializer):
+class FuelRefillSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FuelRefill
         fields = (
+            'id',
             'pilot',
             'value',
             'location_planet',
@@ -194,3 +200,4 @@ class FuelRefillSerializer(serializers.Serializer):
     def validate_value(self, data):
         if len(str(data)) < 3:
             raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
+        return data

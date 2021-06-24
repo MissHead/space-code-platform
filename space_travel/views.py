@@ -75,7 +75,7 @@ def pilot_handle(request, _id):
                     if destination in item.keys():
                         credits = credits - item[destination]
                         if credits < 0:
-                            return JsonResponse({'message': 'Insufficient funds'}, status=status.HTTP_400_BAD_REQUEST)
+                            return JsonResponse({'message': 'Insufficient funds.'}, status=status.HTTP_400_BAD_REQUEST)
                 request_data['credits'] = credits
         data.pop('disabled_at', None)
         data.update(request_data)
@@ -87,7 +87,7 @@ def pilot_handle(request, _id):
             return JsonResponse(pilot_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         pilot.delete()
-        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': 'deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -129,7 +129,7 @@ def resource_handle(request, _id):
             return JsonResponse(resource_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         resource.delete()
-        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': 'deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -161,14 +161,17 @@ def contract_handle(request, _id):
     elif request.method == 'PUT':
         data = contract_serializer.data
         request_data = JSONParser().parse(request)
-        pilot = Contract.objects.filter(pilot=data['id'])
-        if pilot.count() > 0:
-            pilot_serializer = ContractSerializer(pilot[0])
-            if 'status' in request_data:
-                if not request_data['status']:
-                    credits = pilot_serializer.data['credits'] + data['value']
-                    Pilot.objects.update(id=pilot_serializer.data['id'], credits=credits)
-                    request_data['disabled_at'] = datetime.datetime.now()
+        pilot = contract.pilot
+        pilot_data = PilotSerializer(pilot).data
+        if 'status' in request_data:
+            if request_data['status']:
+                credits = pilot.credits + contract.value
+                pilot_data.update({'credits': credits})
+                pilot_data.pop('disabled_at')
+                pilot_serializer = PilotSerializer(pilot, data=pilot_data)
+                if pilot_serializer.is_valid():
+                    pilot_serializer.save()
+                request_data['disabled_at'] = datetime.datetime.now()
         data.update(request_data)
         contract_serializer = ContractSerializer(contract, data)
         if contract_serializer.is_valid():
@@ -178,7 +181,7 @@ def contract_handle(request, _id):
             return JsonResponse(contract_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         contract.delete()
-        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': 'deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -219,7 +222,7 @@ def ship_handle(request, _id):
             return JsonResponse(ship_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         ship.delete()
-        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': 'deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -261,7 +264,7 @@ def planet_handle(request, _id):
             return JsonResponse(planet_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         planet.delete()
-        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': 'deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -302,7 +305,7 @@ def travel_handle(request, _id):
             return JsonResponse(travel_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         travel.delete()
-        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': 'deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -317,6 +320,28 @@ def fuel_refill_controller(request):
         data = JSONParser().parse(request)
         fuel_refill_serializer = FuelRefillSerializer(data=data)
         if fuel_refill_serializer.is_valid():
+            pilot = Pilot.objects.get(pk=data['pilot'])
+            pilot_data = PilotSerializer(pilot).data
+            ship = Ship.objects.get(pilot=data['pilot'])
+            ship_data = ShipSerializer(ship).data
+            total_fuel = ship.fuel_level + data['value']/700
+            credits = pilot.credits - data['value']
+            if total_fuel <= ship.fuel_capacity:
+                if credits > 0:
+                    pilot_data.update({'credits': credits})
+                    pilot_data.pop('disabled_at')
+                    pilot_serializer = PilotSerializer(pilot, data=pilot_data)
+                    if pilot_serializer.is_valid():
+                        pilot_serializer.save()
+                else:
+                    return JsonResponse({'message': 'Insufficient funds.'}, status=status.HTTP_400_BAD_REQUEST)
+                ship_data.update({'fuel_level': int(total_fuel)})
+                ship_data.pop('disabled_at')
+                ship_serializer = ShipSerializer(ship, data=ship_data)
+                if ship_serializer.is_valid():
+                    ship_serializer.save()
+            else:
+                return JsonResponse({'message': 'Fuel capacity limit exceeded.'}, status=status.HTTP_400_BAD_REQUEST)
             fuel_refill_serializer.save()
             return JsonResponse(fuel_refill_serializer.data, status=status.HTTP_201_CREATED)
         else:
