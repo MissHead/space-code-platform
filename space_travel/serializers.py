@@ -68,6 +68,8 @@ class ContractSerializer(serializers.ModelSerializer):
             'origin_planet',
             'destination_planet',
             'value',
+            'pilot',
+            'travel',
             'created_at',
             'disabled_at'
         )
@@ -136,6 +138,7 @@ class TravelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Travel
         fields = (
+            'id',
             'origin_planet',
             'destination_planet',
             'route',

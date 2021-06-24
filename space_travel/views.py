@@ -58,8 +58,25 @@ def pilot_handle(request, _id):
         return JsonResponse(pilot_serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'PUT':
         data = pilot_serializer.data
+        credits = data['credits']
+        request_data = JSONParser().parse(request)
+        contract = Contract.objects.filter(pilot=data['id'])
+        if contract.count() > 0:
+            contract_serializer = ContractSerializer(contract[0])
+            if 'location_planet' in request_data:
+                travel = Travel.objects.get(pk=contract_serializer.data['travel'])
+                travel_serializer = TravelSerializer(travel)
+                _from = PlanetSerializer(Planet.objects.get(pk=data['location_planet']))
+                _to = PlanetSerializer(Planet.objects.get(pk=request_data['location_planet']))
+                for item in travel_serializer.data['route']['map']:
+                    destination = '{} to {}'.format(_from.data['name'], _to.data['name'])
+                    if destination in item.keys():
+                        credits = credits - item[destination]
+                        if credits < 0:
+                            return JsonResponse({'message': 'Insufficient funds'}, status=status.HTTP_400_BAD_REQUEST)
+                request_data['credits'] = credits
         data.pop('disabled_at', None)
-        data.update(JSONParser().parse(request))
+        data.update(request_data)
         pilot_serializer = PilotSerializer(pilot, data)
         if pilot_serializer.is_valid():
             pilot_serializer.save()

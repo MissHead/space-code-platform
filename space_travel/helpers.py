@@ -49,8 +49,7 @@ def planet_name_generate():
         "VIII", "",
         "X", "",
         "IX", "",
-        "D", "",
-        "", ""
+        "D", ""
     ]
     length = random.randint(2, 3)
     initial = random.randint(0, size - 2)

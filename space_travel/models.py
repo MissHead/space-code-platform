@@ -48,12 +48,28 @@ class Resource(models.Model):
         self.save()
 
 
+class Travel(models.Model):
+    origin_planet = models.ForeignKey('Planet', related_name='%(class)s_origin', on_delete=models.CASCADE, blank=False)
+    destination_planet = models.ForeignKey('Planet', related_name='%(class)s_destination', on_delete=models.CASCADE, blank=False)
+    route = models.JSONField(blank=False, default=dict)
+    fuel_costs = models.IntegerField(blank=False)
+    created_at = models.DateTimeField(blank=False, default=timezone.now)
+    disabled_at = models.DateTimeField(blank=False, default=None)
+
+    def delete(self):
+        self.disabled_at = datetime.datetime.now()
+        self.save()
+
+
 class Contract(models.Model):
     description = models.CharField(max_length=200,blank=False)
     payload = models.JSONField(blank=False, default=dict)
     origin_planet = models.ForeignKey('Planet', related_name='%(class)s_origin', on_delete=models.CASCADE, blank=False)
     destination_planet = models.ForeignKey('Planet', related_name='%(class)s_destination', on_delete=models.CASCADE, blank=False)
     value = models.IntegerField(blank=False)
+    pilot = models.ForeignKey('Pilot', on_delete=models.CASCADE, blank=False)
+    travel = models.ForeignKey('Travel', on_delete=models.CASCADE, blank=False)
+    status = models.BooleanField(default=False)
     created_at = models.DateTimeField(blank=False, default=timezone.now)
     disabled_at = models.DateTimeField(blank=False, default=None)
 
@@ -67,19 +83,6 @@ class Ship(models.Model):
     fuel_level = models.IntegerField(blank=False)
     weight_capacity = models.IntegerField(blank=False)
     pilot = models.ForeignKey('Pilot', on_delete=models.CASCADE, blank=False)
-    created_at = models.DateTimeField(blank=False, default=timezone.now)
-    disabled_at = models.DateTimeField(blank=False, default=None)
-
-    def delete(self):
-        self.disabled_at = datetime.datetime.now()
-        self.save()
-
-
-class Travel(models.Model):
-    origin_planet = models.ForeignKey('Planet', related_name='%(class)s_origin', on_delete=models.CASCADE, blank=False)
-    destination_planet = models.ForeignKey('Planet', related_name='%(class)s_destination', on_delete=models.CASCADE, blank=False)
-    route = models.JSONField(blank=False, default=dict)
-    fuel_costs = models.IntegerField(blank=False)
     created_at = models.DateTimeField(blank=False, default=timezone.now)
     disabled_at = models.DateTimeField(blank=False, default=None)
 
