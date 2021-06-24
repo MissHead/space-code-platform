@@ -10,13 +10,17 @@ from space_travel.models import (
     Pilot,
     Resource,
     Contract,
-    Ship
+    Ship,
+    Planet,
+    Travel
 )
 from space_travel.serializers import (
     PilotSerializer,
     ResourceSerializer,
     ContractSerializer,
-    ShipSerializer
+    ShipSerializer,
+    PlanetSerializer,
+    TravelSerializer
 )
 from rest_framework.decorators import api_view
 
@@ -30,7 +34,7 @@ def health_check(request):
 @api_view(['GET', 'POST'])
 def pilot_controller(request):
     if request.method == 'GET':
-        pilots = Pilot.objects.all()
+        pilots = Pilot.objects.filter(disabled_at=None)
         pilots_serializer = PilotSerializer(pilots, many=True)
         return JsonResponse(pilots_serializer.data, safe=False)
     elif request.method == 'POST':
@@ -48,23 +52,22 @@ def pilot_controller(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def pilot_handle(request, _id):
     pilot = Pilot.objects.get(pk=_id)
-    if not pilot:
-        return JsonResponse({'message': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+    pilot_serializer = PilotSerializer(pilot)
     if request.method == 'GET':
-        pilot_serializer = PilotSerializer(pilot)
         return JsonResponse(pilot_serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        pilot_serializer = PilotSerializer(pilot, data=data)
+        data = pilot_serializer.data
+        data.pop('disabled_at', None)
+        data.update(JSONParser().parse(request))
+        pilot_serializer = PilotSerializer(pilot, data)
         if pilot_serializer.is_valid():
             pilot_serializer.save()
             return JsonResponse(pilot_serializer.data, status=status.HTTP_200_OK)
         else:
             return JsonResponse(pilot_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        pilot_serializer = PilotSerializer(pilot, data={'disabled_at': datetime.datetime.now()})
-        pilot_serializer.save()
-        return JsonResponse({}, status=status.HTTP_204_NO_CONTENT)
+        pilot.delete()
+        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -72,7 +75,7 @@ def pilot_handle(request, _id):
 @api_view(['GET', 'POST'])
 def resource_controller(request):
     if request.method == 'GET':
-        resources = Resource.objects.all()
+        resources = Resource.objects.filter(disabled_at=None)
         resources_serializer = ResourceSerializer(resources, many=True)
         return JsonResponse(resources_serializer.data, safe=False)
     elif request.method == 'POST':
@@ -90,23 +93,22 @@ def resource_controller(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def resource_handle(request, _id):
     resource = Resource.objects.get(pk=_id)
-    if not resource:
-        return JsonResponse({'message': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+    resource_serializer = ResourceSerializer(resource)
     if request.method == 'GET':
-        resource_serializer = ResourceSerializer(resource)
         return JsonResponse(resource_serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        resource_serializer = ResourceSerializer(resource, data=data)
+        data = resource_serializer.data
+        data.pop('disabled_at', None)
+        data.update(JSONParser().parse(request))
+        resource_serializer = ResourceSerializer(resource, data)
         if resource_serializer.is_valid():
             resource_serializer.save()
             return JsonResponse(resource_serializer.data, status=status.HTTP_200_OK)
         else:
             return JsonResponse(resource_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        resource_serializer = ResourceSerializer(resource, data={'disabled_at': datetime.datetime.now()})
-        resource_serializer.save()
-        return JsonResponse({}, status=status.HTTP_204_NO_CONTENT)
+        resource.delete()
+        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -114,7 +116,7 @@ def resource_handle(request, _id):
 @api_view(['GET', 'POST'])
 def contract_controller(request):
     if request.method == 'GET':
-        contract = Contract.objects.all()
+        contract = Contract.objects.filter(disabled_at=None)
         contract_serializer = ContractSerializer(contract, many=True)
         return JsonResponse(contract_serializer.data, safe=False)
     elif request.method == 'POST':
@@ -132,23 +134,22 @@ def contract_controller(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def contract_handle(request, _id):
     contract = Contract.objects.get(pk=_id)
-    if not contract:
-        return JsonResponse({'message': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+    contract_serializer = ContractSerializer(contract)
     if request.method == 'GET':
-        contracts_serializer = ContractSerializer(contract)
-        return JsonResponse(contracts_serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(contract_serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        contract_serializer = ContractSerializer(contract, data=data)
+        data = contract_serializer.data
+        data.pop('disabled_at', None)
+        data.update(JSONParser().parse(request))
+        contract_serializer = ContractSerializer(contract, data)
         if contract_serializer.is_valid():
             contract_serializer.save()
             return JsonResponse(contract_serializer.data, status=status.HTTP_200_OK)
         else:
             return JsonResponse(contract_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        contract_serializer = ContractSerializer(contract, data={'disabled_at': datetime.datetime.now()})
-        contract_serializer.save()
-        return JsonResponse({}, status=status.HTTP_204_NO_CONTENT)
+        contract.delete()
+        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -156,7 +157,7 @@ def contract_handle(request, _id):
 @api_view(['GET', 'POST'])
 def ship_controller(request):
     if request.method == 'GET':
-        ships = Ship.objects.all()
+        ships = Ship.objects.filter(disabled_at=None)
         ships_serializer = ShipSerializer(ships, many=True)
         return JsonResponse(ships_serializer.data, safe=False)
     elif request.method == 'POST':
@@ -174,22 +175,103 @@ def ship_controller(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def ship_handle(request, _id):
     ship = Ship.objects.get(pk=_id)
-    if not ship:
-        return JsonResponse({'message': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+    ship_serializer = ShipSerializer(ship)
     if request.method == 'GET':
-        ship_serializer = ShipSerializer(ship)
         return JsonResponse(ship_serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        ship_serializer = ShipSerializer(ship, data=data)
+        data = ship_serializer.data
+        data.pop('disabled_at', None)
+        data.update(JSONParser().parse(request))
+        ship_serializer = ShipSerializer(ship, data)
         if ship_serializer.is_valid():
             ship_serializer.save()
             return JsonResponse(ship_serializer.data, status=status.HTTP_200_OK)
         else:
             return JsonResponse(ship_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        ship_serializer = ShipSerializer(ship, data={'disabled_at': datetime.datetime.now()})
-        ship_serializer.save()
-        return JsonResponse({}, status=status.HTTP_204_NO_CONTENT)
+        ship.delete()
+        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET', 'POST'])
+def planet_controller(request):
+    if request.method == 'GET':
+        planets = Planet.objects.filter(disabled_at=None)
+        planets_serializer = PlanetSerializer(planets, many=True)
+        return JsonResponse(planets_serializer.data, safe=False)
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        planet_serializer = PlanetSerializer(data=data)
+        if planet_serializer.is_valid():
+            planet_serializer.save()
+            return JsonResponse(planet_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return JsonResponse(planet_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def planet_handle(request, _id):
+    planet = Planet.objects.get(pk=_id)
+    planet_serializer = PlanetSerializer(planet)
+    if request.method == 'GET':
+        return JsonResponse(planet_serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'PUT':
+        data = planet_serializer.data
+        data.pop('disabled_at', None)
+        data.update(JSONParser().parse(request))
+        planet_serializer = PlanetSerializer(planet, data)
+        if planet_serializer.is_valid():
+            planet_serializer.save()
+            return JsonResponse(planet_serializer.data, status=status.HTTP_200_OK)
+        else:
+            return JsonResponse(planet_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        planet.delete()
+        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET', 'POST'])
+def travel_controller(request):
+    if request.method == 'GET':
+        travels = Travel.objects.filter(disabled_at=None)
+        travels_serializer = TravelSerializer(travels, many=True)
+        return JsonResponse(travels_serializer.data, safe=False)
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        travel_serializer = TravelSerializer(data=data)
+        if travel_serializer.is_valid():
+            travel_serializer.save()
+            return JsonResponse(travel_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return JsonResponse(travel_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def travel_handle(request, _id):
+    travel = Travel.objects.get(pk=_id)
+    travel_serializer = TravelSerializer(travel)
+    if request.method == 'GET':
+        return JsonResponse(travel_serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'PUT':
+        data = travel_serializer.data
+        data.pop('disabled_at', None)
+        data.update(JSONParser().parse(request))
+        travel_serializer = TravelSerializer(travel, data)
+        if travel_serializer.is_valid():
+            travel_serializer.save()
+            return JsonResponse(travel_serializer.data, status=status.HTTP_200_OK)
+        else:
+            return JsonResponse(travel_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        travel.delete()
+        return JsonResponse({'message': 'deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)

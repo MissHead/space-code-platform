@@ -13,19 +13,6 @@ def certification_generate():
     return result
 
 
-def certification_validate(numbers):
-    certification = [int(char) for char in numbers if char.isdigit()]
-    if len(certification) != 7:
-        return False
-    if certification == certification[::-1]:
-        return False
-    value = sum((certification[num] * ((6+1) - num) for num in range(0, 6)))
-    digit = ((value * 10) % 7) % 10
-    if digit != certification[6]:
-        return False
-    return True
-
-
 def planet_name_generate():
     planets = []
     with open("space_travel/planets.txt", "r") as f:

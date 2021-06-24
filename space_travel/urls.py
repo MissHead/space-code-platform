@@ -11,5 +11,9 @@ urlpatterns = [
     url(r'^contract$', views.contract_controller),
     url(r'^contract/(?P<_id>[0-9]+)$', views.contract_handle),
     url(r'^ship$', views.ship_controller),
-    url(r'^ship/(?P<_id>[0-9]+)$', views.ship_handle)
+    url(r'^ship/(?P<_id>[0-9]+)$', views.ship_handle),
+    url(r'^planet$', views.planet_controller),
+    url(r'^planet/(?P<_id>[0-9]+)$', views.planet_handle),
+    url(r'^travel$', views.travel_controller),
+    url(r'^travel/(?P<_id>[0-9]+)$', views.travel_handle)
 ]
