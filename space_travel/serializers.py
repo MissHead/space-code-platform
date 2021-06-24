@@ -38,7 +38,7 @@ class PilotSerializer(serializers.ModelSerializer):
 
     def validate_location_planet(self, data):
         try:
-            p = Planet.objects.get(pk=data)
+            p = Planet.objects.get(pk=data.id)
         except Exception:
             raise serializers.ValidationError("Invalid planet id.")
         return data
@@ -84,14 +84,14 @@ class ContractSerializer(serializers.ModelSerializer):
 
     def validate_origin_planet(self, data):
         try:
-            p = Planet.objects.get(pk=data)
+            p = Planet.objects.get(pk=data.id)
         except Exception:
             raise serializers.ValidationError("Invalid planet id.")
         return data
 
     def validate_destination_planet(self, data):
         try:
-            p = Planet.objects.get(pk=data)
+            p = Planet.objects.get(pk=data.id)
         except Exception:
             raise serializers.ValidationError("Invalid planet id.")
         return data
@@ -111,7 +111,7 @@ class ShipSerializer(serializers.ModelSerializer):
 
     def validate_pilot(self, data):
         try:
-            p = Pilot.objects.get(pk=data)
+            p = Pilot.objects.get(pk=data.id)
         except Exception:
             raise serializers.ValidationError("Invalid pilot id.")
         return data
@@ -125,6 +125,10 @@ class PlanetSerializer(serializers.ModelSerializer):
             'id',
             'name'
         )
+
+    def create(self, data):
+        data['id'] = Planet.objects.all().last().id + 1
+        return data
 
 
 class TravelSerializer(serializers.ModelSerializer):
@@ -142,14 +146,18 @@ class TravelSerializer(serializers.ModelSerializer):
 
     def validate_origin_planet(self, data):
         try:
-            p = Planet.objects.get(pk=data)
+            p = Planet.objects.get(pk=data.id)
         except Exception:
             raise serializers.ValidationError("Invalid planet id.")
         return data
 
     def validate_destination_planet(self, data):
         try:
-            p = Planet.objects.get(pk=data)
+            p = Planet.objects.get(pk=data.id)
         except Exception:
             raise serializers.ValidationError("Invalid planet id.")
         return data
+
+    # def create(self, data):
+    #     data['id'] = Travel.objects.all().last().id + 1
+    #     return data

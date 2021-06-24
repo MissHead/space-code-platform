@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
+from rest_framework.utils.serializer_helpers import BindingDict
 
 from space_travel.models import (
     Pilot,
@@ -206,6 +207,7 @@ def planet_controller(request):
         planet_serializer = PlanetSerializer(data=data)
         if planet_serializer.is_valid():
             planet_serializer.save()
+            Planet.objects.create(name=planet_serializer.data['name'], id=planet_serializer.data['id'])
             return JsonResponse(planet_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(planet_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -247,6 +249,13 @@ def travel_controller(request):
         travel_serializer = TravelSerializer(data=data)
         if travel_serializer.is_valid():
             travel_serializer.save()
+            # Travel.objects.create(
+            #     origin_planet=travel_serializer.data['origin_planet'],
+            #     destination_planet=travel_serializer.data['destination_planet'],
+            #     route=travel_serializer.data['route'],
+            #     fuel_costs=travel_serializer.data['fuel_costs'],
+            #     id=travel_serializer.data['id']
+            # )
             return JsonResponse(travel_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(travel_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
