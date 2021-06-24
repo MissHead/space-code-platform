@@ -157,7 +157,3 @@ class TravelSerializer(serializers.ModelSerializer):
         except Exception:
             raise serializers.ValidationError("Invalid planet id.")
         return data
-
-    # def create(self, data):
-    #     data['id'] = Travel.objects.all().last().id + 1
-    #     return data

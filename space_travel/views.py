@@ -249,13 +249,6 @@ def travel_controller(request):
         travel_serializer = TravelSerializer(data=data)
         if travel_serializer.is_valid():
             travel_serializer.save()
-            # Travel.objects.create(
-            #     origin_planet=travel_serializer.data['origin_planet'],
-            #     destination_planet=travel_serializer.data['destination_planet'],
-            #     route=travel_serializer.data['route'],
-            #     fuel_costs=travel_serializer.data['fuel_costs'],
-            #     id=travel_serializer.data['id']
-            # )
             return JsonResponse(travel_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(travel_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
