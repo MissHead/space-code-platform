@@ -22,7 +22,7 @@ from rest_framework.test import APIClient
 
 def generate_pilot():
     planet = Planet.objects.create(name=planet_name_generate())
-    pilot = Pilot.objects.create(name=names.get_full_name(), age=randint(1, 99), pilot_certification=certification_generate(), location_planet=planet, credits=randint(100, 999999))
+    pilot = Pilot.objects.create(name=names.get_full_name(), age=randint(1, 99), pilot_certification=certification_generate(), location_planet=planet, credits=randint(1000, 999999))
     ship = Ship.objects.create(
             fuel_capacity=randint(50, 99),
             fuel_level=randint(50, 99),
