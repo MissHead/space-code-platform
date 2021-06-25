@@ -1446,7 +1446,7 @@
       "delete": {
         "summary": "Delete ships",
         "tags": [
-          "Delte ship"
+          "Delete ship"
         ],
         "operationId": "Deleteships",
         "deprecated": false,

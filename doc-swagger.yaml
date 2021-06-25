@@ -1020,7 +1020,7 @@ paths:
       description: Delete ships
       summary: Delete ships
       tags:
-      - Delte ship
+      - Delete ship
       operationId: Deleteships
       deprecated: false
       produces:
@@ -1814,7 +1814,7 @@ paths:
               default: same-origin
 definitions:
   ListPlanets:
-    title: ListPlanets
+    title: List Planets
     example:
       id: 1
       name: heinlein VII
@@ -1829,7 +1829,7 @@ definitions:
     - id
     - name
   WOW!Wediscoveredanewplanet,let'sregisterit:
-    title: WOW!Wediscoveredanewplanet,let'sregisterit
+    title: WOW! We discovered a new planet, let's register it
     example:
       name: Magnetica
     type: object
@@ -1839,7 +1839,7 @@ definitions:
     required:
     - name
   emptypostrequest:
-    title: emptypostrequest
+    title: empty post request
     example:
       name:
       - This field is required.
@@ -1852,7 +1852,7 @@ definitions:
     required:
     - name
   WOWWediscoveredanewplanet,let'sregisterit1:
-    title: WOWWediscoveredanewplanet,let'sregisterit1
+    title: WOW We discovered a new planet, let's registerit
     example:
       id: 11
       name: Aorus XIV
@@ -1867,7 +1867,7 @@ definitions:
     - id
     - name
   Ohno...theplanetwasdestroyed:
-    title: Ohno...theplanetwasdestroyed
+    title: Oh no... the planet was destroyed
     example:
       message: deleted successfully
     type: object
@@ -1877,7 +1877,7 @@ definitions:
     required:
     - message
   Registermap:
-    title: Registermap
+    title: Register map
     example:
       origin_planet: 9
       destination_planet: 2
@@ -1936,7 +1936,7 @@ definitions:
         type: integer
         format: int32
   Registermap1:
-    title: Registermap1
+    title: Register map
     example:
       origin_planet: 10
       destination_planet: 6
@@ -1973,7 +1973,7 @@ definitions:
     - created_at
     - disabled_at
   Route1:
-    title: Route1
+    title: Route
     example:
       map:
       - ryo opsaturn V to cogya: 35
@@ -1988,7 +1988,7 @@ definitions:
     required:
     - map
   Map1:
-    title: Map1
+    title: Map
     example:
       ryo opsaturn V to cogya: 35
     type: object
@@ -2003,7 +2003,7 @@ definitions:
         type: integer
         format: int32
   moneyformat:
-    title: moneyformat
+    title: money format
     example:
       fuel_costs:
       - Invalid value, ₭1.00 is equivalent to 100
@@ -2016,7 +2016,7 @@ definitions:
     required:
     - fuel_costs
   Updatemap:
-    title: Updatemap
+    title: Update map
     example:
       origin_planet: 10
       destination_planet: 6
@@ -2045,7 +2045,7 @@ definitions:
     - route
     - fuel_costs
   Updatemap1:
-    title: Updatemap1
+    title: Update map
     example:
       id: 1
       origin_planet: 10
@@ -2087,7 +2087,7 @@ definitions:
     - created_at
     - disabled_at
   Deletetravelroute:
-    title: Deletetravelroute
+    title: Delete travel route
     example:
       message: deleted successfully
     type: object
@@ -2097,7 +2097,7 @@ definitions:
     required:
     - message
   Listavailableroutes:
-    title: Listavailableroutes
+    title: List available routes
     example:
       origin_planet: 10
       destination_planet: 6
@@ -2134,7 +2134,7 @@ definitions:
     - created_at
     - disabled_at
   Route2:
-    title: Route2
+    title: Route
     example:
       map:
       - ryo opsaturn V to cogya: 35
@@ -2149,7 +2149,7 @@ definitions:
     required:
     - map
   Map2:
-    title: Map2
+    title: Map
     example:
       ryo opsaturn V to cogya: 35
     type: object
@@ -2176,7 +2176,7 @@ definitions:
         type: integer
         format: int32
   Addpilots:
-    title: Addpilots
+    title: Add pilots
     example:
       pilot_certification: '6231600'
       name: Lilo
@@ -2200,7 +2200,7 @@ definitions:
     - age
     - location_planet
   emptypostrequest1:
-    title: emptypostrequest1
+    title: empty post request
     example:
       pilot_certification:
       - This field is required.
@@ -2234,7 +2234,7 @@ definitions:
     - age
     - location_planet
   Validatecertificationlen:
-    title: Validatecertificationlen
+    title: Validate certification len
     example:
       pilot_certification:
       - Ensure this field has no more than 7 characters.
@@ -2247,7 +2247,7 @@ definitions:
     required:
     - pilot_certification
   Validatepilotcertificationnumber:
-    title: Validatepilotcertificationnumber
+    title: Validate pilot certification number
     example:
       pilot_certification:
       - Invalid certification.
@@ -2260,7 +2260,7 @@ definitions:
     required:
     - pilot_certification
   Addpilots1:
-    title: Addpilots1
+    title: Add pilots
     example:
       id: 1
       pilot_certification: '6231600'
@@ -2302,7 +2302,7 @@ definitions:
     - created_at
     - disabled_at
   Theplanetwasrenamed!:
-    title: Theplanetwasrenamed!
+    title: The planet was renamed!
     example:
       name: Magnetica II
     type: object
@@ -2312,7 +2312,7 @@ definitions:
     required:
     - name
   Theplanetwasrenamed!1:
-    title: Theplanetwasrenamed!1
+    title: The planet was renamed!
     example:
       id: 12
       name: Magnetica II
@@ -2327,7 +2327,7 @@ definitions:
     - id
     - name
   Addpilotsandtheirshipstothesystem:
-    title: Addpilotsandtheirshipstothesystem
+    title: Add pilots and their ships to the system
     example:
       fuel_capacity: 180
       fuel_level: 75
@@ -2353,7 +2353,7 @@ definitions:
     - weight_capacity
     - pilot
   emptypostrequest2:
-    title: emptypostrequest2
+    title: empty post request
     example:
       fuel_capacity:
       - This field is required.
@@ -2387,7 +2387,7 @@ definitions:
     - weight_capacity
     - pilot
   Addpilotsandtheirshipstothesystem1:
-    title: Addpilotsandtheirshipstothesystem1
+    title: Add pilots and their ships to the system
     example:
       id: 1
       fuel_capacity: 235
@@ -2418,7 +2418,7 @@ definitions:
     - weight_capacity
     - pilot
   Listpilots:
-    title: Listpilots
+    title: List pilots
     example:
       id: 1
       pilot_certification: '1321322'
@@ -2459,7 +2459,7 @@ definitions:
     - created_at
     - disabled_at
   Editpilot:
-    title: Editpilot
+    title: Edit pilot
     example:
       location_planet: 7
     type: object
@@ -2470,7 +2470,7 @@ definitions:
     required:
     - location_planet
   Addcredits:
-    title: Addcredits
+    title: Add credits
     example:
       id: 1
       pilot_certification: '1321322'
@@ -2511,7 +2511,7 @@ definitions:
     - created_at
     - disabled_at
   Ifyouchangethelocaltionplanetofapilot,accordingwiththecontract,thecreditwillbediscounted:
-    title: Ifyouchangethelocaltionplanetofapilot,accordingwiththecontract,thecreditwillbediscounted
+    title: If you change the localtion planet of a pilot, according with the contract, the credit will be discounted
     example:
       id: 1
       pilot_certification: '6231600'
@@ -2553,7 +2553,7 @@ definitions:
     - created_at
     - disabled_at
   Ohno!youdon'thavefundstogotoanotherplanet!:
-    title: Ohno!youdon'thavefundstogotoanotherplanet!
+    title: Oh no! you don't have funds to go to another planet!
     example:
       message: Insufficient funds
     type: object
@@ -2563,7 +2563,7 @@ definitions:
     required:
     - message
   Deletepilot:
-    title: Deletepilot
+    title: Delete pilot
     example:
       message: deleted successfully
     type: object
@@ -2573,7 +2573,7 @@ definitions:
     required:
     - message
   Listships:
-    title: Listships
+    title: List ships
     example:
       id: 1
       fuel_capacity: 235
@@ -2604,7 +2604,7 @@ definitions:
     - weight_capacity
     - pilot
   EditshipsRequest:
-    title: EditshipsRequest
+    title: Edit ships Request
     example:
       weight_capacity: 80
     type: object
@@ -2615,7 +2615,7 @@ definitions:
     required:
     - weight_capacity
   Editships:
-    title: Editships
+    title: Edit ships
     example:
       id: 1
       fuel_capacity: 235
@@ -2646,7 +2646,7 @@ definitions:
     - weight_capacity
     - pilot
   Deleteships:
-    title: Deleteships
+    title: Delete ships
     example:
       message: deleted successfully
     type: object
@@ -2656,7 +2656,7 @@ definitions:
     required:
     - message
   RegistryresourcesRequest:
-    title: RegistryresourcesRequest
+    title: Registry resources Request
     example:
       name: water
       weight: 1000
@@ -2671,7 +2671,7 @@ definitions:
     - name
     - weight
   emptypostrequest3:
-    title: emptypostrequest3
+    title: empty post request
     example:
       name:
       - This field is required.
@@ -2691,7 +2691,7 @@ definitions:
     - name
     - weight
   Registryresources:
-    title: Registryresources
+    title: Registry resources
     example:
       id: 4
       name: carbon
@@ -2719,7 +2719,7 @@ definitions:
     - created_at
     - disabled_at
   Theresourceisunavailable:
-    title: Theresourceisunavailable
+    title: The resource is unavailable
     example:
       message: deleted successfully
     type: object
@@ -2729,7 +2729,7 @@ definitions:
     required:
     - message
   Listresources:
-    title: Listresources
+    title: List resources
     example:
       id: 1
       name: breadcom
@@ -2757,7 +2757,7 @@ definitions:
     - created_at
     - disabled_at
   Publishtransportcontracts:
-    title: Publishtransportcontracts
+    title: Publish transport contracts
     example:
       description: botsand of fire to Telmia
       origin_planet: 9
@@ -2812,7 +2812,7 @@ definitions:
     required:
     - resources
   emptypostrequest4:
-    title: emptypostrequest4
+    title: empty post request
     example:
       description:
       - This field is required.
@@ -2846,7 +2846,7 @@ definitions:
     - destination_planet
     - value
   Validatepayload:
-    title: Validatepayload
+    title: Validate payload
     example:
       payload:
       - Invalid payload key.
@@ -2859,7 +2859,7 @@ definitions:
     required:
     - payload
   Publishtransportcontracts1:
-    title: Publishtransportcontracts1
+    title: Publish transport contracts
     example:
       id: 1
       description: gold and carbon to Venus
@@ -2902,7 +2902,7 @@ definitions:
     - created_at
     - disabled_at
   Validatepayload1:
-    title: Validatepayload1
+    title: Validate payload
     example:
       pilot:
       - This field is required.
@@ -2922,7 +2922,7 @@ definitions:
     - pilot
     - travel
   Editcontract:
-    title: Editcontract
+    title: Edit contract
     example:
       status: true
     type: object
@@ -2932,7 +2932,7 @@ definitions:
     required:
     - status
   Editcontract1:
-    title: Editcontract1
+    title: Edit contract
     example:
       id: 1
       description: gold, oxygen and carbon to Venus
@@ -2978,7 +2978,7 @@ definitions:
     - created_at
     - disabled_at
   Finishcontract-Thepilotwillbepayed!:
-    title: Finishcontract-Thepilotwillbepayed!
+    title: Finish contract - The pilot will be payed!
     example:
       id: 1
       description: botsand of fire to Telmia
@@ -3036,7 +3036,7 @@ definitions:
     - created_at
     - disabled_at
   Disablecontract:
-    title: Disablecontract
+    title: Disable contract
     example:
       message: deleted successfully
     type: object
@@ -3046,7 +3046,7 @@ definitions:
     required:
     - message
   Listopencontract:
-    title: Listopencontract
+    title: List open contract
     example:
       id: 1
       description: sand to Earth
@@ -3090,7 +3090,7 @@ definitions:
     - created_at
     - disabled_at
   Ineedmorefuel!:
-    title: Ineedmorefuel!
+    title: I need more fuel!
     example:
       pilot: 1
       value: 8000
@@ -3111,7 +3111,7 @@ definitions:
     - value
     - location_planet
   emptypostrequest5:
-    title: emptypostrequest5
+    title: empty post request
     example:
       pilot:
       - This field is required.
@@ -3138,7 +3138,7 @@ definitions:
     - value
     - location_planet
   Ohno,nomoneyenough:
-    title: Ohno,nomoneyenough
+    title: Oh no, no money enough
     example:
       message: Insufficient funds.
     type: object
@@ -3148,7 +3148,7 @@ definitions:
     required:
     - message
   Ineedmorefuel!1:
-    title: Ineedmorefuel!1
+    title: I need more fuel!
     example:
       id: 7
       pilot: 1
@@ -3182,7 +3182,7 @@ definitions:
     - created_at
     - disabled_at
   Totalweightintonsofeachresourcesentandreceivedbyeachplanet.:
-    title: Totalweightintonsofeachresourcesentandreceivedbyeachplanet.
+    title: Total weight in tons of each resource sent and received by each planet.
     example:
       catmia:
         sent: {}
@@ -3250,7 +3250,7 @@ definitions:
     required:
     - breadcom
   TucardaX:
-    title: TucardaX
+    title: Tucarda X
     example:
       sent: {}
       received: {}
@@ -3264,7 +3264,7 @@ definitions:
     - sent
     - received
   LustagniB:
-    title: LustagniB
+    title: Lustagni B
     example:
       sent: {}
       received: {}
@@ -3320,7 +3320,7 @@ definitions:
     - sent
     - received
   BenzarX:
-    title: BenzarX
+    title: Benzar X
     example:
       sent: {}
       received: {}
@@ -3360,7 +3360,7 @@ definitions:
     required:
     - breadcom
   TelmiapiaV:
-    title: TelmiapiaV
+    title: Telmiapia V
     example:
       sent: {}
       received: {}
@@ -3374,7 +3374,7 @@ definitions:
     - sent
     - received
   Percentageofresourcetypetransportedbyeachpilot.:
-    title: Percentageofresourcetypetransportedbyeachpilot.
+    title: Percentage of resource type transported by each pilot.
     example:
       Lilo:
         breadcom: 100%
@@ -3427,7 +3427,7 @@ tags:
   description: ''
 - name: Edit ship
   description: ''
-- name: Delte ship
+- name: Delete ship
   description: ''
 - name: Add resource
   description: ''
