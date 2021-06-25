@@ -45,6 +45,8 @@ class PilotSerializer(serializers.ModelSerializer):
         return data
 
     def validate_credits(self, data):
+        if data == 0:
+            return data
         if len(str(data)) < 3:
             raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
         return data

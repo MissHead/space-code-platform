@@ -1,4 +1,4 @@
-import datetime
+from django.utils import timezone
 import subprocess
 from django.shortcuts import render
 from itertools import chain
@@ -171,7 +171,7 @@ def contract_handle(request, _id):
                 pilot_serializer = PilotSerializer(pilot, data=pilot_data)
                 if pilot_serializer.is_valid():
                     pilot_serializer.save()
-                request_data['disabled_at'] = datetime.datetime.now()
+                request_data['disabled_at'] = timezone.now()
         data.update(request_data)
         contract_serializer = ContractSerializer(contract, data)
         if contract_serializer.is_valid():

@@ -1,4 +1,4 @@
-import datetime
+from django.utils import timezone
 from django.utils import timezone
 from django.db import models
 
@@ -19,7 +19,7 @@ class Planet(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
     def delete(self):
-        self.disabled_at = datetime.datetime.now()
+        self.disabled_at = timezone.now()
         self.save()
 
 
@@ -33,7 +33,7 @@ class Pilot(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
     def delete(self):
-        self.disabled_at = datetime.datetime.now()
+        self.disabled_at = timezone.now()
         self.save()
 
 
@@ -44,7 +44,7 @@ class Resource(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
     def delete(self):
-        self.disabled_at = datetime.datetime.now()
+        self.disabled_at = timezone.now()
         self.save()
 
 
@@ -57,7 +57,7 @@ class Travel(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
     def delete(self):
-        self.disabled_at = datetime.datetime.now()
+        self.disabled_at = timezone.now()
         self.save()
 
 
@@ -74,7 +74,7 @@ class Contract(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
     def delete(self):
-        self.disabled_at = datetime.datetime.now()
+        self.disabled_at = timezone.now()
         self.save()
 
 
@@ -87,7 +87,7 @@ class Ship(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
     def delete(self):
-        self.disabled_at = datetime.datetime.now()
+        self.disabled_at = timezone.now()
         self.save()
 
 
@@ -99,5 +99,5 @@ class FuelRefill(models.Model):
     disabled_at = models.DateTimeField(blank=False, default=None)
 
     def delete(self):
-        self.disabled_at = datetime.datetime.now()
+        self.disabled_at = timezone.now()
         self.save()
