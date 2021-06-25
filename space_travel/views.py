@@ -103,7 +103,10 @@ def resource_controller(request):
         resource_serializer = ResourceSerializer(data=data)
         if resource_serializer.is_valid():
             resource_serializer.save()
-            Resource.objects.create(name=resource_serializer.data['name'], id=resource_serializer.data['id'])
+            if 'id' in resource_serializer.data.keys():
+                Resource.objects.create(name=resource_serializer.data['name'], id=resource_serializer.data['id'])
+            else:
+                Resource.objects.create(name=resource_serializer.data['name'])
             return JsonResponse(resource_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(resource_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -172,7 +175,10 @@ def contract_handle(request, _id):
                 if pilot_serializer.is_valid():
                     pilot_serializer.save()
                 request_data['disabled_at'] = timezone.now()
-        data.update(request_data)
+            data.update(request_data)
+        else:
+            data.pop('disabled_at', None)
+            data.update(request_data)
         contract_serializer = ContractSerializer(contract, data)
         if contract_serializer.is_valid():
             contract_serializer.save()
@@ -238,7 +244,10 @@ def planet_controller(request):
         planet_serializer = PlanetSerializer(data=data)
         if planet_serializer.is_valid():
             planet_serializer.save()
-            Planet.objects.create(name=planet_serializer.data['name'], id=planet_serializer.data['id'])
+            if 'id' in planet_serializer.data.keys():
+                Planet.objects.create(name=planet_serializer.data['name'], id=planet_serializer.data['id'])
+            else:
+                Planet.objects.create(name=planet_serializer.data['name'])
             return JsonResponse(planet_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return JsonResponse(planet_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -417,9 +426,9 @@ def report_resource_weight(request):
 def report_resource_percentage(request):
     if request.method == 'GET':
         report = list()
-        resources_transported = dict()
         resources_total = dict()
         for pilot in Pilot.objects.all():
+            resources_transported = dict()
             for resource in Resource.objects.all():
                 contracts = Contract.objects.filter(disabled_at__isnull=False, pilot=pilot.id)
                 for contract in contracts:

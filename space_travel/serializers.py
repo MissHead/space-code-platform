@@ -65,7 +65,8 @@ class ResourceSerializer(serializers.ModelSerializer):
         )
 
     def create(self, data):
-        data['id'] = Planet.objects.all().last().id + 1
+        if Resource.objects.all().count() > 0:
+            data['id'] = Resource.objects.all().last().id + 1
         return data
 
 
@@ -148,7 +149,8 @@ class PlanetSerializer(serializers.ModelSerializer):
         )
 
     def create(self, data):
-        data['id'] = Planet.objects.all().last().id + 1
+        if Planet.objects.all().count() > 0:
+            data['id'] = Planet.objects.all().last().id + 1
         return data
 
 
@@ -183,6 +185,11 @@ class TravelSerializer(serializers.ModelSerializer):
     def validate_fuel_costs(self, data):
         if len(str(data)) < 3:
             raise serializers.ValidationError("Invalid value, ₭1.00 is equivalent to 100")
+        return data
+
+    def validate_route(self, data):
+        if "map" not in data.keys():
+            raise serializers.ValidationError("We cannot add your route to the map, please ensure that the key 'map' is in your route json")
         return data
 
 
