@@ -20,7 +20,7 @@ consumes:
 produces:
 - application/json
 paths:
-  /planet:
+  /planets:
     get:
       description: List Planets
       summary: List Planets
@@ -212,7 +212,7 @@ paths:
             Referrer-Policy:
               type: string
               default: same-origin
-  /travel:
+  /travels:
     post:
       description: Register map
       summary: Register map
@@ -479,7 +479,7 @@ paths:
             Referrer-Policy:
               type: string
               default: same-origin
-  /pilot:
+  /pilots:
     post:
       description: Add pilots
       summary: Add pilots
@@ -579,7 +579,7 @@ paths:
       description: List pilots
       summary: List pilots
       tags:
-      - Lis all pilots
+      - List all pilots
       operationId: Listpilots
       deprecated: false
       produces:
@@ -686,7 +686,7 @@ paths:
             Referrer-Policy:
               type: string
               default: same-origin
-  /ship:
+  /ships:
     post:
       description: Add pilots and their ships to the system
       summary: Add pilots ships to the system
@@ -1059,7 +1059,7 @@ paths:
             Referrer-Policy:
               type: string
               default: same-origin
-  /resource:
+  /resources:
     post:
       description: Registry resources
       summary: Registry resources
@@ -1286,7 +1286,7 @@ paths:
             Referrer-Policy:
               type: string
               default: same-origin
-  /contract:
+  /contracts:
     post:
       description: Publish transport contracts
       summary: Publish transport contracts
@@ -1544,7 +1544,7 @@ paths:
             Referrer-Policy:
               type: string
               default: same-origin
-  /fuel_refill:
+  /fuel_refills:
     post:
       description: I need more fuel!
       summary: I need more fuel!
@@ -3398,56 +3398,56 @@ tags:
 - name: Space Code Platform
   description: Developed by Izabela Ramos Ferreira (MissHead)
 - name: List all planets
-  description: ''
+  description: Show all Planets available. The application's initial migrations include creating 10 random planets to populate the bank.
 - name: Add a new planet
-  description: ''
+  description: Insert a new Planet
 - name: The planet has gone away...
-  description: ''
+  description: Deactivate a Planet Example
 - name: Add a new route for the Galaxy map
-  description: ''
+  description: Include a new route
 - name: Routes for travel
-  description: ''
+  description: Show routes available
 - name: The galaxy map
-  description: ''
+  description: Show routes available
 - name: The passage to the other planet is over
-  description: ''
+  description: Deactivate route
 - name: Registry new pilots
-  description: ''
-- name: Lis all pilots
-  description: ''
+  description: Add a new Pilot, credits are not required yet
+- name: List all pilots
+  description: Show all pilots available
 - name: Edit planet name
-  description: ''
+  description: Edit planet name
 - name: Registry ship for pilot
-  description: ''
+  description: add ship and link to a pilot
 - name: List ships
-  description: ''
+  description: show all ships
 - name: Edit pilot info
-  description: ''
+  description: edit pilot info
 - name: Turn off pilot activity
-  description: ''
+  description: deactivate Pilot
 - name: Edit ship
-  description: ''
+  description: update ship
 - name: Delete ship
-  description: ''
+  description: Deactivate Ship Example
 - name: Add resource
-  description: ''
+  description: Add a new resource. The application's initial migrations include creating 10 random resources to populate the bank.
 - name: List resources
-  description: ''
+  description: Show all available resources
 - name: The resource over
-  description: ''
+  description: Deactivating resource Example
 - name: Create contract
-  description: ''
+  description: The system must finish the contract when the pilot gets to the delivery destination. After that, the pilot receives the number of credits specified as value.
 - name: List available contracts
-  description: ''
+  description: Filtered by available Contracts
 - name: Edit contracts
-  description: ''
+  description: If the Contract status is True, the Contract is deactivated and the Pilot earns credits.
 - name: The contract ended
-  description: ''
+  description: Ending the Contract Example'
 - name: Buy more fuel
-  description: ''
+  description: A fuel unit costs 7 credits, this is why when a pillot register a fuel refill, the API divides the value payed by 700 (₭7.00 credits) and add the total of the fuel_level of the Pilot Ship if the fuel_capacity allow.
 - name: Report of resources weight x Planet
-  description: ''
+  description: The API provides reports of resources total weight in tons of each resource sent and received by each planet.
 - name: Report of resources x pilots
-  description: ''
+  description: The API provides reports of resources percentage of each type transported by each pilot.
 - name: Report of all transactions
-  description: ''
+  description: The API provides reports of Intergalactic Federation transactions ledger sorted by date (oldest to newest). Means that all contracts and all fuel refill registered are included.

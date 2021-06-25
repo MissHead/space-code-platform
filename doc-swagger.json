@@ -18,7 +18,7 @@
     "application/json"
   ],
   "paths": {
-    "/planet": {
+    "/planets": {
       "get": {
         "summary": "List Planets",
         "tags": [
@@ -299,7 +299,7 @@
         }
       }
     },
-    "/travel": {
+    "/travels": {
       "post": {
         "summary": "Register map",
         "tags": [
@@ -697,7 +697,7 @@
         }
       }
     },
-    "/pilot": {
+    "/pilots": {
       "post": {
         "summary": "Add pilots",
         "tags": [
@@ -984,7 +984,7 @@
         }
       }
     },
-    "/ship": {
+    "/ships": {
       "post": {
         "summary": "Add pilots and their ships to the system",
         "tags": [
@@ -1503,7 +1503,7 @@
         }
       }
     },
-    "/resource": {
+    "/resources": {
       "post": {
         "summary": "Registry resources",
         "tags": [
@@ -1820,7 +1820,7 @@
         }
       }
     },
-    "/contract": {
+    "/contracts": {
       "post": {
         "summary": "Publish transport contracts",
         "tags": [
@@ -2179,7 +2179,7 @@
         }
       }
     },
-    "/fuel_refill": {
+    "/fuel_refills": {
       "post": {
         "summary": "I need more fuel!",
         "tags": [
