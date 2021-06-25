@@ -103,3 +103,9 @@ python3 manage.py runserver
 ```
 curl http://127.0.0.1:8000/health
 ```
+
+- Running tests
+
+```
+python3 manage.py test
+```
