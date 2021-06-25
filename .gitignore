@@ -4,3 +4,7 @@ __pycache__/
 .env
 .coverage
 .pytest_cache/
+.wt
+.lock
+.bson
+*mongodb/database/mongodb/database
