@@ -1,0 +1,4821 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Space Code Platform",
+    "description": "application to manage the transport fleet of goods through the galaxy, including planets.\n\nthis application manage information about the pilots, ships, contracts as well as the cargos they transport.\n\nit is also possible generate reports about total weight in tons of each resource sent and received by each planet, percentage of resource type transported by each pilot and Intergalactic Federation transactions ledger sorted by date (oldest to newest).",
+    "contact": {}
+  },
+  "host": "{{galaxy}}",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/planet": {
+      "get": {
+        "summary": "List Planets",
+        "tags": [
+          "List all planets"
+        ],
+        "operationId": "ListPlanets",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ListPlanet"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "name": "heinlein VII"
+                },
+                {
+                  "id": 2,
+                  "name": "nigsigmo X"
+                },
+                {
+                  "id": 3,
+                  "name": "cordo "
+                },
+                {
+                  "id": 4,
+                  "name": "cogara VII"
+                },
+                {
+                  "id": 5,
+                  "name": "contoid B"
+                },
+                {
+                  "id": 6,
+                  "name": "rida "
+                },
+                {
+                  "id": 7,
+                  "name": "dovbiru "
+                },
+                {
+                  "id": 8,
+                  "name": "noelizeus "
+                },
+                {
+                  "id": 9,
+                  "name": "lethdovpi "
+                },
+                {
+                  "id": 10,
+                  "name": "morlicturn "
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 13:10:34 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "POST, GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "322"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "WOW We discovered a new planet, let's register it",
+        "tags": [
+          "Add a new planet"
+        ],
+        "operationId": "WOWWediscoveredanewplanet,let'sregisterit",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/WOWWediscoveredanewplanet%2Clet%27sregisteritRequest"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/emptypostrequest1"
+            },
+            "examples": {
+              "application/json": {
+                "name": [
+                  "This field is required."
+                ]
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 13:12:29 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "POST, GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "37"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/WOWWediscoveredanewplanet%2Clet%27sregisterit"
+            },
+            "examples": {
+              "application/json": {
+                "id": 11,
+                "name": "Aorus XIV"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 13:19:38 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, POST, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "31"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/planet/11": {
+      "delete": {
+        "summary": "Oh no... the planet was destroyed",
+        "tags": [
+          "The planet has gone away..."
+        ],
+        "operationId": "Ohno...theplanetwasdestroyed",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "$ref": "#/definitions/Ohno...theplanetwasdestroyed"
+            },
+            "examples": {
+              "application/json": {
+                "message": "deleted successfully"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 13:28:18 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "DELETE, GET, PUT, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "35"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/travel": {
+      "post": {
+        "summary": "Register map",
+        "tags": [
+          "Add a new route for the Galaxy map"
+        ],
+        "operationId": "Registermap",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegistermapRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Registermap"
+            },
+            "examples": {
+              "application/json": {
+                "origin_planet": 10,
+                "destination_planet": 6,
+                "route": {
+                  "map": [
+                    {
+                      "ryo opsaturn V to cogya": 35
+                    },
+                    {
+                      "cogya to dovdesmor": 4
+                    },
+                    {
+                      "dovdesmor to cogya": 10
+                    }
+                  ]
+                },
+                "fuel_costs": 49,
+                "created_at": "2021-06-24T14:59:24.880504Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 14:59:24 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, GET, POST"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "238"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/moneyformat1"
+            },
+            "examples": {
+              "application/json": {
+                "fuel_costs": [
+                  "Invalid value, ₭1.00 is equivalent to 100"
+                ]
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 19:57:30 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, POST, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "66"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List available routes",
+        "tags": [
+          "Routes for travel"
+        ],
+        "operationId": "Listavailableroutes",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Listavailableroute"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "origin_planet": 10,
+                  "destination_planet": 6,
+                  "route": {
+                    "map": [
+                      {
+                        "ryo opsaturn V to cogya": 35
+                      },
+                      {
+                        "cogya to dovdesmor": 4
+                      },
+                      {
+                        "dovdesmor to cogya": 10
+                      }
+                    ]
+                  },
+                  "fuel_costs": 49,
+                  "created_at": "2021-06-24T14:59:24.88Z",
+                  "disabled_at": null
+                },
+                {
+                  "origin_planet": 1,
+                  "destination_planet": 5,
+                  "route": {
+                    "map": [
+                      {
+                        "mopi to phoboslic alpha": 4
+                      }
+                    ]
+                  },
+                  "fuel_costs": 4,
+                  "created_at": "2021-06-24T15:00:49.55Z",
+                  "disabled_at": null
+                },
+                {
+                  "origin_planet": 4,
+                  "destination_planet": 7,
+                  "route": {
+                    "map": [
+                      {
+                        "birupro VIII to kupsic": 10
+                      },
+                      {
+                        "kupsic to astosal VI": 5
+                      },
+                      {
+                        "astosal VI to cogya": 5
+                      }
+                    ]
+                  },
+                  "fuel_costs": 20,
+                  "created_at": "2021-06-24T15:03:23.187Z",
+                  "disabled_at": null
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 15:55:47 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, POST, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "662"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/travel/1": {
+      "put": {
+        "summary": "Update map",
+        "tags": [
+          "The galaxy map"
+        ],
+        "operationId": "Updatemap",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdatemapRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Updatemap"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "origin_planet": 10,
+                "destination_planet": 6,
+                "route": {
+                  "map": [
+                    {
+                      "ryo opsaturn V to cogya": 35
+                    },
+                    {
+                      "cogya to dovdesmor": 4
+                    },
+                    {
+                      "dovdesmor to cogya": 6
+                    }
+                  ]
+                },
+                "fuel_costs": 45,
+                "created_at": "2021-06-24T14:59:24.88Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 15:58:05 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "DELETE, OPTIONS, GET, PUT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "246"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete travel route",
+        "tags": [
+          "The passage to the other planet is over"
+        ],
+        "operationId": "Deletetravelroute",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "$ref": "#/definitions/Deletetravelroute"
+            },
+            "examples": {
+              "application/json": {
+                "message": "deleted successfully"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 15:59:05 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "DELETE, OPTIONS, GET, PUT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "35"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pilot": {
+      "post": {
+        "summary": "Add pilots",
+        "tags": [
+          "Registry new pilots"
+        ],
+        "operationId": "Addpilots",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddpilotsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/emptypostrequest3"
+            },
+            "examples": {
+              "application/json": {
+                "pilot_certification": [
+                  "This field is required."
+                ],
+                "name": [
+                  "This field is required."
+                ],
+                "age": [
+                  "This field is required."
+                ],
+                "location_planet": [
+                  "This field is required."
+                ]
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 16:56:05 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, OPTIONS, POST"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "173"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Addpilots"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "pilot_certification": "6231600",
+                "name": "Lilo",
+                "age": 16,
+                "credits": 0,
+                "location_planet": 1,
+                "created_at": "2021-06-24T15:59:31.200028Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 15:59:31 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "POST, GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "172"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List pilots",
+        "tags": [
+          "Lis all pilots"
+        ],
+        "operationId": "Listpilots",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Listpilot"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "pilot_certification": "1321322",
+                  "name": "Magnos Borba",
+                  "age": 25,
+                  "credits": 0,
+                  "location_planet": "Jupiter I",
+                  "created_at": "2021-06-23T18:26:34.496Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 2,
+                  "pilot_certification": "2547894",
+                  "name": "Miss Corta",
+                  "age": 36,
+                  "credits": 0,
+                  "location_planet": "Esmeralda X",
+                  "created_at": "2021-06-23T18:35:57.402Z",
+                  "disabled_at": null
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 18:36:01 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "POST, GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "384"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/planet/12": {
+      "put": {
+        "summary": "The planet was renamed!",
+        "tags": [
+          "Edit planet name"
+        ],
+        "operationId": "Theplanetwasrenamed!",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Theplanetwasrenamed%21Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Theplanetwasrenamed%21"
+            },
+            "examples": {
+              "application/json": {
+                "id": 12,
+                "name": "Magnetica II"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 13:30:07 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "DELETE, GET, PUT, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "34"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ship": {
+      "post": {
+        "summary": "Add pilots and their ships to the system",
+        "tags": [
+          "Registry ship for pilot"
+        ],
+        "operationId": "Addpilotsandtheirshipstothesystem",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddpilotsandtheirshipstothesystemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/emptypostrequest5"
+            },
+            "examples": {
+              "application/json": {
+                "fuel_capacity": [
+                  "This field is required."
+                ],
+                "fuel_level": [
+                  "This field is required."
+                ],
+                "weight_capacity": [
+                  "This field is required."
+                ],
+                "pilot": [
+                  "This field is required."
+                ]
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 18:27:16 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "POST, GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "175"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Addpilotsandtheirshipstothesystem"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "fuel_capacity": 235,
+                "fuel_level": 150,
+                "weight_capacity": 48,
+                "pilot": 1
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 18:28:22 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "POST, GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "85"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List ships",
+        "tags": [
+          "List ships"
+        ],
+        "operationId": "Listships",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Listship"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "fuel_capacity": 235,
+                  "fuel_level": 150,
+                  "weight_capacity": 48,
+                  "pilot": 1
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 19:01:06 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, POST, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "87"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pilot/1": {
+      "put": {
+        "summary": "Edit pilot",
+        "tags": [
+          "Edit pilot info"
+        ],
+        "operationId": "Editpilot",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditpilotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Addcredits"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "pilot_certification": "1321322",
+                "name": "Cesar VII",
+                "age": 25,
+                "credits": 60000,
+                "location_planet": "Jupiter I",
+                "created_at": "2021-06-23T18:26:34.496Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 19:17:04 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, PUT, DELETE, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "191"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Ohno%21youdon%27thavefundstogotoanotherplanet%211"
+            },
+            "examples": {
+              "application/json": {
+                "message": "Insufficient funds"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 17:18:13 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, OPTIONS, DELETE, PUT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "33"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pilot/2": {
+      "delete": {
+        "summary": "Delete pilot",
+        "tags": [
+          "Turn off pilot activity"
+        ],
+        "operationId": "Deletepilot",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "$ref": "#/definitions/Deletepilot"
+            },
+            "examples": {
+              "application/json": {
+                "message": "deleted successfully"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 18:50:07 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, DELETE, OPTIONS, PUT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "35"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ship/1": {
+      "put": {
+        "summary": "Edit ships",
+        "tags": [
+          "Edit ship"
+        ],
+        "operationId": "Editships",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditshipsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Editships"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "fuel_capacity": 235,
+                "fuel_level": 150,
+                "weight_capacity": 80,
+                "pilot": 1
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 19:05:25 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, PUT, DELETE, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "85"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ship/2": {
+      "delete": {
+        "summary": "Delete ships",
+        "tags": [
+          "Delte ship"
+        ],
+        "operationId": "Deleteships",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "$ref": "#/definitions/Deleteships"
+            },
+            "examples": {
+              "application/json": {
+                "message": "deleted successfully"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 19:07:49 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, PUT, DELETE, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "35"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resource": {
+      "post": {
+        "summary": "Registry resources",
+        "tags": [
+          "Add resource"
+        ],
+        "operationId": "Registryresources",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegistryresourcesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/emptypostrequest7"
+            },
+            "examples": {
+              "application/json": {
+                "name": [
+                  "This field is required."
+                ],
+                "weight": [
+                  "This field is required."
+                ]
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 19:26:42 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, POST, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "76"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Registryresources"
+            },
+            "examples": {
+              "application/json": {
+                "id": 4,
+                "name": "carbon",
+                "weight": 75,
+                "created_at": "2021-06-23T19:45:34.365424Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 19:45:34 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, POST, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "107"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List resources",
+        "tags": [
+          "List resources"
+        ],
+        "operationId": "Listresources",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Listresource"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "name": "breadcom",
+                  "weight": 46,
+                  "created_at": "2021-06-24T18:11:27.501Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 2,
+                  "name": "signfood",
+                  "weight": 33,
+                  "created_at": "2021-06-24T18:11:27.502Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 3,
+                  "name": "fireTV",
+                  "weight": 44,
+                  "created_at": "2021-06-24T18:11:27.502Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 4,
+                  "name": "flamesignflame",
+                  "weight": 24,
+                  "created_at": "2021-06-24T18:11:27.503Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 5,
+                  "name": "puterwa",
+                  "weight": 95,
+                  "created_at": "2021-06-24T18:11:27.504Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 6,
+                  "name": "ercom of mermaid",
+                  "weight": 88,
+                  "created_at": "2021-06-24T18:11:27.504Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 7,
+                  "name": "CDrobot",
+                  "weight": 95,
+                  "created_at": "2021-06-24T18:11:27.505Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 8,
+                  "name": "milkair of fire",
+                  "weight": 96,
+                  "created_at": "2021-06-24T18:11:27.505Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 9,
+                  "name": "waterput of light",
+                  "weight": 53,
+                  "created_at": "2021-06-24T18:11:27.506Z",
+                  "disabled_at": null
+                },
+                {
+                  "id": 10,
+                  "name": "botsand of fire",
+                  "weight": 60,
+                  "created_at": "2021-06-24T18:11:27.506Z",
+                  "disabled_at": null
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 18:12:02 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, POST, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "1144"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resource/2": {
+      "delete": {
+        "summary": "The resource is unavailable, we have to disable it",
+        "tags": [
+          "The resource over"
+        ],
+        "operationId": "Theresourceisunavailable,wehavetodisableit",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "$ref": "#/definitions/Theresourceisunavailable"
+            },
+            "examples": {
+              "application/json": {
+                "message": "deleted successfully"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 16:06:46 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "DELETE, OPTIONS, GET, PUT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "35"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contract": {
+      "post": {
+        "summary": "Publish transport contracts",
+        "tags": [
+          "Create contract"
+        ],
+        "operationId": "Publishtransportcontracts",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PublishtransportcontractsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/emptypostrequest9"
+            },
+            "examples": {
+              "application/json": {
+                "description": [
+                  "This field is required."
+                ],
+                "origin_planet": [
+                  "This field is required."
+                ],
+                "destination_planet": [
+                  "This field is required."
+                ],
+                "value": [
+                  "This field is required."
+                ]
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Wed, 23 Jun 2021 19:12:51 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, POST, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "179"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Publishtransportcontracts"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "description": "gold and carbon to Venus",
+                "payload": {
+                  "resources": [
+                    4,
+                    1
+                  ]
+                },
+                "origin_planet": "Earth",
+                "destination_planet": "Venus",
+                "value": 25000,
+                "created_at": "2021-06-24T00:29:35.675649Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 00:29:35 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, POST, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "225"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List open contracts",
+        "tags": [
+          "List available contracts"
+        ],
+        "operationId": "Listopencontracts",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Listopencontract"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "description": "sand to Earth",
+                  "payload": {
+                    "resources": [
+                      3
+                    ]
+                  },
+                  "origin_planet": 1,
+                  "destination_planet": 5,
+                  "value": 5000,
+                  "created_at": "2021-06-24T16:03:55.748Z",
+                  "disabled_at": null
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 16:05:18 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "POST, GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "200"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contract/1": {
+      "put": {
+        "summary": "Edit contract",
+        "tags": [
+          "Edit contracts"
+        ],
+        "operationId": "Editcontract",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditcontractRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Editcontracts"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "description": "gold, oxygen and carbon to Venus",
+                "payload": {
+                  "resources": [
+                    4,
+                    2,
+                    1
+                  ]
+                },
+                "origin_planet": 1,
+                "destination_planet": 5,
+                "value": 25000,
+                "created_at": "2021-06-24T00:29:35.675Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 00:32:40 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "PUT, OPTIONS, DELETE, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "236"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contract/2": {
+      "delete": {
+        "summary": "Disable contract",
+        "tags": [
+          "The contract ended"
+        ],
+        "operationId": "Disablecontract",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "$ref": "#/definitions/Disablecontract"
+            },
+            "examples": {
+              "application/json": {
+                "message": "deleted successfully"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 00:36:12 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "PUT, OPTIONS, DELETE, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "35"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fuel_refill": {
+      "post": {
+        "summary": "I need more fuel!",
+        "tags": [
+          "Buy more fuel"
+        ],
+        "operationId": "Ineedmorefuel!",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Ineedmorefuel%21Request"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/emptypostrequest11"
+            },
+            "examples": {
+              "application/json": {
+                "pilot": [
+                  "This field is required."
+                ],
+                "value": [
+                  "This field is required."
+                ],
+                "location_planet": [
+                  "This field is required."
+                ]
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 18:28:53 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, GET, POST"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "124"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Ineedmorefuel%21"
+            },
+            "examples": {
+              "application/json": {
+                "id": 7,
+                "pilot": 1,
+                "value": 8000,
+                "location_planet": 3,
+                "created_at": "2021-06-24T19:54:54.363394Z",
+                "disabled_at": null
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 19:54:54 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, POST, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "124"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/report/resource_weight": {
+      "get": {
+        "summary": "Total weight in tons of each resource sent and received by each planet.",
+        "tags": [
+          "Report of resources weight x Planet"
+        ],
+        "operationId": "Totalweightintonsofeachresourcesentandreceivedbyeachplanet.",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Totalweightintonsofeachresourcesentandreceivedbyeachplanet."
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "catmia": {
+                    "sent": {},
+                    "received": {}
+                  }
+                },
+                {
+                  "telmia": {
+                    "sent": {},
+                    "received": {
+                      "breadcom": 46
+                    }
+                  }
+                },
+                {
+                  "tucarda X": {
+                    "sent": {},
+                    "received": {}
+                  }
+                },
+                {
+                  "lustagni B": {
+                    "sent": {},
+                    "received": {}
+                  }
+                },
+                {
+                  "saturnes": {
+                    "sent": {},
+                    "received": {}
+                  }
+                },
+                {
+                  "hyphobos": {
+                    "sent": {},
+                    "received": {}
+                  }
+                },
+                {
+                  "leonisnoe": {
+                    "sent": {},
+                    "received": {}
+                  }
+                },
+                {
+                  "benzar X": {
+                    "sent": {},
+                    "received": {}
+                  }
+                },
+                {
+                  "thosli": {
+                    "sent": {
+                      "breadcom": 46
+                    },
+                    "received": {}
+                  }
+                },
+                {
+                  "telmiapia V": {
+                    "sent": {},
+                    "received": {}
+                  }
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 20:43:09 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "469"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/report/resource_percentage": {
+      "get": {
+        "summary": "Percentage of resource type transported by each pilot.",
+        "tags": [
+          "Report of resources x pilots"
+        ],
+        "operationId": "Percentageofresourcetypetransportedbyeachpilot.",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Percentageofresourcetypetransportedbyeachpilot."
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "Lilo": {
+                    "breadcom": "100%"
+                  }
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Thu, 24 Jun 2021 21:05:41 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "GET, OPTIONS"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "32"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/report/transactions": {
+      "get": {
+        "summary": "Intergalactic Federation transactions ledger sorted by date (oldest to newest).",
+        "tags": [
+          "Report of all transactions"
+        ],
+        "operationId": "IntergalacticFederationtransactionsledgersortedbydate(oldesttonewest).",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "application/json": [
+                "Lilo bought fuel: +₭80.0",
+                "Lilo bought fuel: +₭80.0",
+                "Lilo bought fuel: +₭80.0",
+                "Lilo bought fuel: +₭80.0",
+                "Lilo bought fuel: +₭80.0",
+                "Lilo bought fuel: +₭80.0",
+                "Contract 1 Description botsand of fire to Telmia paid: -₭50.0"
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 25 Jun 2021 02:20:51 GMT"
+              },
+              "Server": {
+                "type": "string",
+                "default": "WSGIServer/0.2 CPython/3.9.5"
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept, Origin, Cookie"
+              },
+              "Allow": {
+                "type": "string",
+                "default": "OPTIONS, GET"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "268"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "DENY"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "Referrer-Policy": {
+                "type": "string",
+                "default": "same-origin"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ListPlanet": {
+      "title": "List Planets",
+      "example": {
+        "id": 1,
+        "name": "heinlein VII"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "WOWWediscoveredanewplanet,let'sregisteritRequest": {
+      "title": "WOW! We discovered a newplanet, let's register it",
+      "example": {
+        "name": "Magnetica"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "emptypostrequest1": {
+      "title": "empty post request",
+      "example": {
+        "name": [
+          "This field is required."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "WOWWediscoveredanewplanet,let'sregisterit": {
+      "title": "WOW We discovered a new planet, let's register it",
+      "example": {
+        "id": 11,
+        "name": "Aorus XIV"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "Ohno...theplanetwasdestroyed": {
+      "title": "Oh no... the planet was destroyed",
+      "example": {
+        "message": "deleted successfully"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "RegistermapRequest": {
+      "title": "Register map",
+      "example": {
+        "origin_planet": 9,
+        "destination_planet": 2,
+        "route": {
+          "map": [
+            {
+              "thosli to benzar X": 10
+            },
+            {
+              "benzar X to tucarda X": 5
+            },
+            {
+              "tucarda X to telmia": 5
+            }
+          ]
+        },
+        "fuel_costs": 2000
+      },
+      "type": "object",
+      "properties": {
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "route": {
+          "$ref": "#/definitions/Route"
+        },
+        "fuel_costs": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "origin_planet",
+        "destination_planet",
+        "route",
+        "fuel_costs"
+      ]
+    },
+    "Route": {
+      "title": "Route",
+      "example": {
+        "map": [
+          {
+            "thosli to benzar X": 10
+          },
+          {
+            "benzar X to tucarda X": 5
+          },
+          {
+            "tucarda X to telmia": 5
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "map": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Map"
+          }
+        }
+      },
+      "required": [
+        "map"
+      ]
+    },
+    "Map": {
+      "title": "Map",
+      "example": {
+        "thosli to benzar X": 10
+      },
+      "type": "object",
+      "properties": {
+        "thosli to benzar X": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "benzar X to tucarda X": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tucarda X to telmia": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Registermap": {
+      "title": "Register map",
+      "example": {
+        "origin_planet": 10,
+        "destination_planet": 6,
+        "route": {
+          "map": [
+            {
+              "ryo opsaturn V to cogya": 35
+            },
+            {
+              "cogya to dovdesmor": 4
+            },
+            {
+              "dovdesmor to cogya": 10
+            }
+          ]
+        },
+        "fuel_costs": 49,
+        "created_at": "2021-06-24T14:59:24.880504Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "route": {
+          "$ref": "#/definitions/Route1"
+        },
+        "fuel_costs": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "origin_planet",
+        "destination_planet",
+        "route",
+        "fuel_costs",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Route1": {
+      "title": "Route",
+      "example": {
+        "map": [
+          {
+            "ryo opsaturn V to cogya": 35
+          },
+          {
+            "cogya to dovdesmor": 4
+          },
+          {
+            "dovdesmor to cogya": 10
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "map": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Map1"
+          }
+        }
+      },
+      "required": [
+        "map"
+      ]
+    },
+    "Map1": {
+      "title": "Map",
+      "example": {
+        "ryo opsaturn V to cogya": 35
+      },
+      "type": "object",
+      "properties": {
+        "ryo opsaturn V to cogya": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cogya to dovdesmor": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dovdesmor to cogya": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "moneyformat1": {
+      "title": "money format",
+      "example": {
+        "fuel_costs": [
+          "Invalid value, ₭1.00 is equivalent to 100"
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "fuel_costs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "fuel_costs"
+      ]
+    },
+    "UpdatemapRequest": {
+      "title": "Update map",
+      "example": {
+        "origin_planet": 10,
+        "destination_planet": 6,
+        "route": {
+          "map": [
+            {
+              "ryo opsaturn V to cogya": 35
+            },
+            {
+              "cogya to dovdesmor": 4
+            },
+            {
+              "dovdesmor to cogya": 6
+            }
+          ]
+        },
+        "fuel_costs": 45
+      },
+      "type": "object",
+      "properties": {
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "route": {
+          "$ref": "#/definitions/Route1"
+        },
+        "fuel_costs": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "origin_planet",
+        "destination_planet",
+        "route",
+        "fuel_costs"
+      ]
+    },
+    "Updatemap": {
+      "title": "Update map",
+      "example": {
+        "id": 1,
+        "origin_planet": 10,
+        "destination_planet": 6,
+        "route": {
+          "map": [
+            {
+              "ryo opsaturn V to cogya": 35
+            },
+            {
+              "cogya to dovdesmor": 4
+            },
+            {
+              "dovdesmor to cogya": 6
+            }
+          ]
+        },
+        "fuel_costs": 45,
+        "created_at": "2021-06-24T14:59:24.88Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "route": {
+          "$ref": "#/definitions/Route1"
+        },
+        "fuel_costs": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "origin_planet",
+        "destination_planet",
+        "route",
+        "fuel_costs",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Deletetravelroute": {
+      "title": "Delete travel route",
+      "example": {
+        "message": "deleted successfully"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "Listavailableroute": {
+      "title": "List available routes",
+      "example": {
+        "origin_planet": 10,
+        "destination_planet": 6,
+        "route": {
+          "map": [
+            {
+              "ryo opsaturn V to cogya": 35
+            },
+            {
+              "cogya to dovdesmor": 4
+            },
+            {
+              "dovdesmor to cogya": 10
+            }
+          ]
+        },
+        "fuel_costs": 49,
+        "created_at": "2021-06-24T14:59:24.88Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "route": {
+          "$ref": "#/definitions/Route4"
+        },
+        "fuel_costs": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "origin_planet",
+        "destination_planet",
+        "route",
+        "fuel_costs",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Route4": {
+      "title": "Route",
+      "example": {
+        "map": [
+          {
+            "ryo opsaturn V to cogya": 35
+          },
+          {
+            "cogya to dovdesmor": 4
+          },
+          {
+            "dovdesmor to cogya": 10
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "map": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Map4"
+          }
+        }
+      },
+      "required": [
+        "map"
+      ]
+    },
+    "Map4": {
+      "title": "Map",
+      "example": {
+        "ryo opsaturn V to cogya": 35
+      },
+      "type": "object",
+      "properties": {
+        "ryo opsaturn V to cogya": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cogya to dovdesmor": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dovdesmor to cogya": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "mopi to phoboslic alpha": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "birupro VIII to kupsic": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kupsic to astosal VI": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "astosal VI to cogya": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "AddpilotsRequest": {
+      "title": "Add pilots",
+      "example": {
+        "pilot_certification": "6231600",
+        "name": "Lilo",
+        "age": 16,
+        "location_planet": 3
+      },
+      "type": "object",
+      "properties": {
+        "pilot_certification": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "location_planet": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "pilot_certification",
+        "name",
+        "age",
+        "location_planet"
+      ]
+    },
+    "emptypostrequest3": {
+      "title": "empty post request",
+      "example": {
+        "pilot_certification": [
+          "This field is required."
+        ],
+        "name": [
+          "This field is required."
+        ],
+        "age": [
+          "This field is required."
+        ],
+        "location_planet": [
+          "This field is required."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "pilot_certification": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "age": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location_planet": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "pilot_certification",
+        "name",
+        "age",
+        "location_planet"
+      ]
+    },
+    "Validatecertificationlen1": {
+      "title": "Validate certification len",
+      "example": {
+        "pilot_certification": [
+          "Ensure this field has no more than 7 characters."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "pilot_certification": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "pilot_certification"
+      ]
+    },
+    "Validatepilotcertificationnumber1": {
+      "title": "Validate pilot certification number",
+      "example": {
+        "pilot_certification": [
+          "Invalid certification."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "pilot_certification": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "pilot_certification"
+      ]
+    },
+    "Addpilots": {
+      "title": "Add pilots",
+      "example": {
+        "id": 1,
+        "pilot_certification": "6231600",
+        "name": "Lilo",
+        "age": 16,
+        "credits": 0,
+        "location_planet": 1,
+        "created_at": "2021-06-24T15:59:31.200028Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot_certification": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "credits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "location_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pilot_certification",
+        "name",
+        "age",
+        "credits",
+        "location_planet",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Theplanetwasrenamed!Request": {
+      "title": "The planet was renamed!",
+      "example": {
+        "name": "Magnetica II"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "Theplanetwasrenamed!": {
+      "title": "The planet was renamed!",
+      "example": {
+        "id": 12,
+        "name": "Magnetica II"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "AddpilotsandtheirshipstothesystemRequest": {
+      "title": "Add pilots and their ships to the system",
+      "example": {
+        "fuel_capacity": 180,
+        "fuel_level": 75,
+        "weight_capacity": 15,
+        "pilot": 1
+      },
+      "type": "object",
+      "properties": {
+        "fuel_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fuel_level": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "weight_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "fuel_capacity",
+        "fuel_level",
+        "weight_capacity",
+        "pilot"
+      ]
+    },
+    "emptypostrequest5": {
+      "title": "empty post request",
+      "example": {
+        "fuel_capacity": [
+          "This field is required."
+        ],
+        "fuel_level": [
+          "This field is required."
+        ],
+        "weight_capacity": [
+          "This field is required."
+        ],
+        "pilot": [
+          "This field is required."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "fuel_capacity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fuel_level": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weight_capacity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pilot": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "fuel_capacity",
+        "fuel_level",
+        "weight_capacity",
+        "pilot"
+      ]
+    },
+    "Addpilotsandtheirshipstothesystem": {
+      "title": "Add pilots and their ships to the system",
+      "example": {
+        "id": 1,
+        "fuel_capacity": 235,
+        "fuel_level": 150,
+        "weight_capacity": 48,
+        "pilot": 1
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fuel_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fuel_level": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "weight_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id",
+        "fuel_capacity",
+        "fuel_level",
+        "weight_capacity",
+        "pilot"
+      ]
+    },
+    "Listpilot": {
+      "title": "List pilots",
+      "example": {
+        "id": 1,
+        "pilot_certification": "1321322",
+        "name": "Magnos Borba",
+        "age": 25,
+        "credits": 0,
+        "location_planet": "Jupiter I",
+        "created_at": "2021-06-23T18:26:34.496Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot_certification": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "credits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "location_planet": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pilot_certification",
+        "name",
+        "age",
+        "credits",
+        "location_planet",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "EditpilotRequest": {
+      "title": "Edit pilot",
+      "example": {
+        "location_planet": 7
+      },
+      "type": "object",
+      "properties": {
+        "location_planet": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "location_planet"
+      ]
+    },
+    "Addcredits": {
+      "title": "Add credits",
+      "example": {
+        "id": 1,
+        "pilot_certification": "1321322",
+        "name": "Cesar VII",
+        "age": 25,
+        "credits": 60000,
+        "location_planet": "Jupiter I",
+        "created_at": "2021-06-23T18:26:34.496Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot_certification": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "credits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "location_planet": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pilot_certification",
+        "name",
+        "age",
+        "credits",
+        "location_planet",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Ifyouchangethelocaltionplanetofapilot,accordingwiththecontract,thecreditwillbediscounted": {
+      "title": "If you change the localtion planet of a pilot, according with the contract, the credit will be discounted",
+      "example": {
+        "id": 1,
+        "pilot_certification": "6231600",
+        "name": "Lilo",
+        "age": 16,
+        "credits": 1995,
+        "location_planet": 7,
+        "created_at": "2021-06-24T16:23:17.749Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot_certification": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "credits": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "location_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pilot_certification",
+        "name",
+        "age",
+        "credits",
+        "location_planet",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Ohno!youdon'thavefundstogotoanotherplanet!1": {
+      "title": "Oh no! you don't have funds to go to another planet!",
+      "example": {
+        "message": "Insufficient funds"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "Deletepilot": {
+      "title": "Delete pilot",
+      "example": {
+        "message": "deleted successfully"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "Listship": {
+      "title": "List ships",
+      "example": {
+        "id": 1,
+        "fuel_capacity": 235,
+        "fuel_level": 150,
+        "weight_capacity": 48,
+        "pilot": 1
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fuel_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fuel_level": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "weight_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id",
+        "fuel_capacity",
+        "fuel_level",
+        "weight_capacity",
+        "pilot"
+      ]
+    },
+    "EditshipsRequest": {
+      "title": "Edit ships Request",
+      "example": {
+        "weight_capacity": 80
+      },
+      "type": "object",
+      "properties": {
+        "weight_capacity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "weight_capacity"
+      ]
+    },
+    "Editships": {
+      "title": "Edit ships",
+      "example": {
+        "id": 1,
+        "fuel_capacity": 235,
+        "fuel_level": 150,
+        "weight_capacity": 80,
+        "pilot": 1
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fuel_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fuel_level": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "weight_capacity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id",
+        "fuel_capacity",
+        "fuel_level",
+        "weight_capacity",
+        "pilot"
+      ]
+    },
+    "Deleteships": {
+      "title": "Delete ships",
+      "example": {
+        "message": "deleted successfully"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "RegistryresourcesRequest": {
+      "title": "Registry resources Request",
+      "example": {
+        "name": "water",
+        "weight": 1000
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "name",
+        "weight"
+      ]
+    },
+    "emptypostrequest7": {
+      "title": "empty post request",
+      "example": {
+        "name": [
+          "This field is required."
+        ],
+        "weight": [
+          "This field is required."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weight": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "weight"
+      ]
+    },
+    "Registryresources": {
+      "title": "Registry resources",
+      "example": {
+        "id": 4,
+        "name": "carbon",
+        "weight": 75,
+        "created_at": "2021-06-23T19:45:34.365424Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "weight",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Theresourceisunavailable": {
+      "title": "The resource is unavailable",
+      "example": {
+        "message": "deleted successfully"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "Listresource": {
+      "title": "List resources",
+      "example": {
+        "id": 1,
+        "name": "breadcom",
+        "weight": 46,
+        "created_at": "2021-06-24T18:11:27.501Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "weight",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "PublishtransportcontractsRequest": {
+      "title": "Publish transport contracts",
+      "example": {
+        "description": "botsand of fire to Telmia",
+        "origin_planet": 9,
+        "payload": {
+          "resources": [
+            1
+          ]
+        },
+        "destination_planet": 2,
+        "value": 5000,
+        "pilot": 1,
+        "travel": 1
+      },
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "payload": {
+          "$ref": "#/definitions/Payload"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "travel": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "description",
+        "origin_planet",
+        "payload",
+        "destination_planet",
+        "value",
+        "pilot",
+        "travel"
+      ]
+    },
+    "Payload": {
+      "title": "Payload",
+      "example": {
+        "resources": [
+          1
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "required": [
+        "resources"
+      ]
+    },
+    "emptypostrequest9": {
+      "title": "empty post request",
+      "example": {
+        "description": [
+          "This field is required."
+        ],
+        "origin_planet": [
+          "This field is required."
+        ],
+        "destination_planet": [
+          "This field is required."
+        ],
+        "value": [
+          "This field is required."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "origin_planet": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "destination_planet": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "description",
+        "origin_planet",
+        "destination_planet",
+        "value"
+      ]
+    },
+    "Validatepayload1": {
+      "title": "Validate payload",
+      "example": {
+        "payload": [
+          "Invalid payload key."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "payload": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "payload"
+      ]
+    },
+    "Publishtransportcontracts": {
+      "title": "Publish transport contracts",
+      "example": {
+        "id": 1,
+        "description": "gold and carbon to Venus",
+        "payload": {
+          "resources": [
+            4,
+            1
+          ]
+        },
+        "origin_planet": "Earth",
+        "destination_planet": "Venus",
+        "value": 25000,
+        "created_at": "2021-06-24T00:29:35.675649Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/Payload"
+        },
+        "origin_planet": {
+          "type": "string"
+        },
+        "destination_planet": {
+          "type": "string"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "payload",
+        "origin_planet",
+        "destination_planet",
+        "value",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Validatepayload5": {
+      "title": "Validate payload",
+      "example": {
+        "pilot": [
+          "This field is required."
+        ],
+        "travel": [
+          "This field is required."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "pilot": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "travel": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "pilot",
+        "travel"
+      ]
+    },
+    "EditcontractRequest": {
+      "title": "Edit contract",
+      "example": {
+        "status": true
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "Editcontracts": {
+      "title": "Edit contract",
+      "example": {
+        "id": 1,
+        "description": "gold, oxygen and carbon to Venus",
+        "payload": {
+          "resources": [
+            4,
+            2,
+            1
+          ]
+        },
+        "origin_planet": 1,
+        "destination_planet": 5,
+        "value": 25000,
+        "created_at": "2021-06-24T00:29:35.675Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/Payload"
+        },
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "payload",
+        "origin_planet",
+        "destination_planet",
+        "value",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Finishcontract-Thepilotwillbepayed!": {
+      "title": "Finish contract - The pilot will be payed!",
+      "example": {
+        "id": 1,
+        "description": "botsand of fire to Telmia",
+        "payload": {
+          "resources": [
+            1
+          ]
+        },
+        "origin_planet": 9,
+        "destination_planet": 2,
+        "value": 5000,
+        "pilot": 1,
+        "travel": 1,
+        "status": true,
+        "created_at": "2021-06-24T19:59:15.89Z",
+        "disabled_at": "2021-06-24T20:08:50.226905Z"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/Payload"
+        },
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "travel": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "payload",
+        "origin_planet",
+        "destination_planet",
+        "value",
+        "pilot",
+        "travel",
+        "status",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Disablecontract": {
+      "title": "Disable contract",
+      "example": {
+        "message": "deleted successfully"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "Listopencontract": {
+      "title": "List open contract",
+      "example": {
+        "id": 1,
+        "description": "sand to Earth",
+        "payload": {
+          "resources": [
+            3
+          ]
+        },
+        "origin_planet": 1,
+        "destination_planet": 5,
+        "value": 5000,
+        "created_at": "2021-06-24T16:03:55.748Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "description": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/Payload"
+        },
+        "origin_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "destination_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "payload",
+        "origin_planet",
+        "destination_planet",
+        "value",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Ineedmorefuel!Request": {
+      "title": "I need more fuel!",
+      "example": {
+        "pilot": 1,
+        "value": 8000,
+        "location_planet": 3
+      },
+      "type": "object",
+      "properties": {
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "location_planet": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "pilot",
+        "value",
+        "location_planet"
+      ]
+    },
+    "emptypostrequest11": {
+      "title": "empty post request",
+      "example": {
+        "pilot": [
+          "This field is required."
+        ],
+        "value": [
+          "This field is required."
+        ],
+        "location_planet": [
+          "This field is required."
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "pilot": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location_planet": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "pilot",
+        "value",
+        "location_planet"
+      ]
+    },
+    "Ohno,nomoneyenough1": {
+      "title": "Oh no, no money enough",
+      "example": {
+        "message": "Insufficient funds."
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ]
+    },
+    "Ineedmorefuel!": {
+      "title": "I need more fuel!",
+      "example": {
+        "id": 7,
+        "pilot": 1,
+        "value": 8000,
+        "location_planet": 3,
+        "created_at": "2021-06-24T19:54:54.363394Z",
+        "disabled_at": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pilot": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "location_planet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "disabled_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pilot",
+        "value",
+        "location_planet",
+        "created_at",
+        "disabled_at"
+      ]
+    },
+    "Totalweightintonsofeachresourcesentandreceivedbyeachplanet.": {
+      "title": "Total weight in tons of each resource sent and received by each planet.",
+      "example": {
+        "catmia": {
+          "sent": {},
+          "received": {}
+        }
+      },
+      "type": "object",
+      "properties": {
+        "catmia": {
+          "$ref": "#/definitions/Catmia"
+        },
+        "telmia": {
+          "$ref": "#/definitions/Telmia"
+        },
+        "tucarda X": {
+          "$ref": "#/definitions/TucardaX"
+        },
+        "lustagni B": {
+          "$ref": "#/definitions/LustagniB"
+        },
+        "saturnes": {
+          "$ref": "#/definitions/Saturnes"
+        },
+        "hyphobos": {
+          "$ref": "#/definitions/Hyphobos"
+        },
+        "leonisnoe": {
+          "$ref": "#/definitions/Leonisnoe"
+        },
+        "benzar X": {
+          "$ref": "#/definitions/BenzarX"
+        },
+        "thosli": {
+          "$ref": "#/definitions/Thosli"
+        },
+        "telmiapia V": {
+          "$ref": "#/definitions/TelmiapiaV"
+        }
+      }
+    },
+    "Catmia": {
+      "title": "Catmia",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Telmia": {
+      "title": "Telmia",
+      "example": {
+        "sent": {},
+        "received": {
+          "breadcom": 46
+        }
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "$ref": "#/definitions/Received"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Received": {
+      "title": "Received",
+      "example": {
+        "breadcom": 46
+      },
+      "type": "object",
+      "properties": {
+        "breadcom": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "breadcom"
+      ]
+    },
+    "TucardaX": {
+      "title": "Tucarda X",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "LustagniB": {
+      "title": "Lustagni B",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Saturnes": {
+      "title": "Saturnes",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Hyphobos": {
+      "title": "Hyphobos",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Leonisnoe": {
+      "title": "Leonisnoe",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "BenzarX": {
+      "title": "Benzar X",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Thosli": {
+      "title": "Thosli",
+      "example": {
+        "sent": {
+          "breadcom": 46
+        },
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "$ref": "#/definitions/Sent"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Sent": {
+      "title": "Sent",
+      "example": {
+        "breadcom": 46
+      },
+      "type": "object",
+      "properties": {
+        "breadcom": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "breadcom"
+      ]
+    },
+    "TelmiapiaV": {
+      "title": "Telmiapia V",
+      "example": {
+        "sent": {},
+        "received": {}
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "object"
+        },
+        "received": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "sent",
+        "received"
+      ]
+    },
+    "Percentageofresourcetypetransportedbyeachpilot.": {
+      "title": "Percentage of resource type transported by each pilot.",
+      "example": {
+        "Lilo": {
+          "breadcom": "100%"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "Lilo": {
+          "$ref": "#/definitions/Lilo"
+        }
+      },
+      "required": [
+        "Lilo"
+      ]
+    },
+    "Lilo": {
+      "title": "Lilo",
+      "example": {
+        "breadcom": "100%"
+      },
+      "type": "object",
+      "properties": {
+        "breadcom": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "breadcom"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Space Code Platform",
+      "description": "Developed by Izabela Ramos Ferreira (MissHead)"
+    }
+  ]
+}

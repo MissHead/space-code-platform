@@ -1,0 +1,3450 @@
+{
+	"info": {
+		"_postman_id": "c8f99662-8bfd-4e8e-bfa4-a7f54b2b1b54",
+		"name": "Space Code Platform",
+		"description": "application to manage the transport fleet of goods through the galaxy, including planets.\n\nthis application manage information about the pilots, ships, contracts as well as the cargos they transport.\n\nit is also possible generate reports about total weight in tons of each resource sent and received by each planet, percentage of resource type transported by each pilot and Intergalactic Federation transactions ledger sorted by date (oldest to newest).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Planets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/planet",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"planet"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List Planets",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/planet",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"planet"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 13:10:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "322"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"heinlein VII\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"nigsigmo X\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"cordo \"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"cogara VII\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"contoid B\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"rida \"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"dovbiru \"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"noelizeus \"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"lethdovpi \"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"morlicturn \"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "WOW We discovered a new planet, let's register it",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Magnetica\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/planet",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"planet"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "empty post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/planet",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"planet"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 13:12:29 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": [\n        \"This field is required.\"\n    ]\n}"
+				},
+				{
+					"name": "WOW We discovered a new planet, let's register it",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aorus XIV\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/planet",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"planet"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 13:19:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 11,\n    \"name\": \"Aorus XIV\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Oh no... the planet was destroyed",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/planet/11",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"planet",
+						"11"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Oh no... the planet was destroyed",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/planet/11",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"planet",
+								"11"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 13:28:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, GET, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Register map",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin_planet\": 9,\n    \"destination_planet\": 2,\n    \"route\": {\n        \"map\": [\n            {\n                \"thosli to benzar X\": 10\n            },\n            {\n                \"benzar X to tucarda X\": 5\n            },\n            {\n                \"tucarda X to telmia\": 5\n            }\n        ]\n    },\n    \"fuel_costs\": 2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/travel",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"travel"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register map",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"origin_planet\" : 10,\n\t\"destination_planet\" : 6,\n\t\"route\" : {\n\t\t\"map\" : [\n\t\t\t{\n\t\t\t\t\"ryo opsaturn V to cogya\" : 35\n\t\t\t},\n            {\n                \"cogya to dovdesmor\": 4\n            },\n            {\n                \"dovdesmor to cogya\": 10\n            }\n\t\t]\n\t},\n\t\"fuel_costs\" : 49}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/travel",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"travel"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 14:59:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, GET, POST"
+						},
+						{
+							"key": "Content-Length",
+							"value": "238"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"origin_planet\": 10,\n    \"destination_planet\": 6,\n    \"route\": {\n        \"map\": [\n            {\n                \"ryo opsaturn V to cogya\": 35\n            },\n            {\n                \"cogya to dovdesmor\": 4\n            },\n            {\n                \"dovdesmor to cogya\": 10\n            }\n        ]\n    },\n    \"fuel_costs\": 49,\n    \"created_at\": \"2021-06-24T14:59:24.880504Z\",\n    \"disabled_at\": null\n}"
+				},
+				{
+					"name": "money format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"origin_planet\": 9,\n    \"destination_planet\": 2,\n    \"route\": {\n        \"map\": [\n            {\n                \"thosli to benzar X\": 10\n            },\n            {\n                \"benzar X to tucarda X\": 5\n            },\n            {\n                \"tucarda X to telmia\": 5\n            }\n        ]\n    },\n    \"fuel_costs\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/travel",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"travel"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 19:57:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fuel_costs\": [\n        \"Invalid value, ₭1.00 is equivalent to 100\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update map",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin_planet\": 10,\n    \"destination_planet\": 6,\n    \"route\": {\n        \"map\": [\n            {\n                \"ryo opsaturn V to cogya\": 35\n            },\n            {\n                \"cogya to dovdesmor\": 4\n            },\n            {\n                \"dovdesmor to cogya\": 6\n            }\n        ]\n    },\n    \"fuel_costs\": 45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/travel/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"travel",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update map",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"origin_planet\": 10,\n    \"destination_planet\": 6,\n    \"route\": {\n        \"map\": [\n            {\n                \"ryo opsaturn V to cogya\": 35\n            },\n            {\n                \"cogya to dovdesmor\": 4\n            },\n            {\n                \"dovdesmor to cogya\": 6\n            }\n        ]\n    },\n    \"fuel_costs\": 45\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/travel/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"travel",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 15:58:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "246"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"origin_planet\": 10,\n    \"destination_planet\": 6,\n    \"route\": {\n        \"map\": [\n            {\n                \"ryo opsaturn V to cogya\": 35\n            },\n            {\n                \"cogya to dovdesmor\": 4\n            },\n            {\n                \"dovdesmor to cogya\": 6\n            }\n        ]\n    },\n    \"fuel_costs\": 45,\n    \"created_at\": \"2021-06-24T14:59:24.880000Z\",\n    \"disabled_at\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete travel route",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/travel/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"travel",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete travel route",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/travel/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"travel",
+								"1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 15:59:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List available routes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/travel",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"travel"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List available routes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/travel",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"travel"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 15:55:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "662"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"origin_planet\": 10,\n        \"destination_planet\": 6,\n        \"route\": {\n            \"map\": [\n                {\n                    \"ryo opsaturn V to cogya\": 35\n                },\n                {\n                    \"cogya to dovdesmor\": 4\n                },\n                {\n                    \"dovdesmor to cogya\": 10\n                }\n            ]\n        },\n        \"fuel_costs\": 49,\n        \"created_at\": \"2021-06-24T14:59:24.880000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"origin_planet\": 1,\n        \"destination_planet\": 5,\n        \"route\": {\n            \"map\": [\n                {\n                    \"mopi to phoboslic alpha\": 4\n                }\n            ]\n        },\n        \"fuel_costs\": 4,\n        \"created_at\": \"2021-06-24T15:00:49.550000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"origin_planet\": 4,\n        \"destination_planet\": 7,\n        \"route\": {\n            \"map\": [\n                {\n                    \"birupro VIII to kupsic\": 10\n                },\n                {\n                    \"kupsic to astosal VI\": 5\n                },\n                {\n                    \"astosal VI to cogya\": 5\n                }\n            ]\n        },\n        \"fuel_costs\": 20,\n        \"created_at\": \"2021-06-24T15:03:23.187000Z\",\n        \"disabled_at\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Add pilots",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pilot_certification\": \"6231600\",\n    \"name\": \"Lilo\",\n    \"age\": 16,\n    \"location_planet\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/pilot",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"pilot"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "empty post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/pilot",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 16:56:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS, POST"
+						},
+						{
+							"key": "Content-Length",
+							"value": "173"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pilot_certification\": [\n        \"This field is required.\"\n    ],\n    \"name\": [\n        \"This field is required.\"\n    ],\n    \"age\": [\n        \"This field is required.\"\n    ],\n    \"location_planet\": [\n        \"This field is required.\"\n    ]\n}"
+				},
+				{
+					"name": "Validate certification len",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pilot_certification\": \"322222132132178\",\n    \"name\": \"Lilo\",\n    \"age\": 15,\n    \"location_planet\": \"Venus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/pilot",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 00:06:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, GET, POST"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pilot_certification\": [\n        \"Ensure this field has no more than 7 characters.\"\n    ]\n}"
+				},
+				{
+					"name": "Validate pilot certification number",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pilot_certification\": \"1112221\",\n    \"name\": \"Lilo\",\n    \"age\": 15,\n    \"location_planet\": \"Venus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/pilot",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 00:17:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS, POST"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pilot_certification\": [\n        \"Invalid certification.\"\n    ]\n}"
+				},
+				{
+					"name": "Add pilots",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pilot_certification\": \"6231600\",\n    \"name\": \"Lilo\",\n    \"age\": 16,\n    \"location_planet\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/pilot",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 15:59:31 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"pilot_certification\": \"6231600\",\n    \"name\": \"Lilo\",\n    \"age\": 16,\n    \"credits\": 0,\n    \"location_planet\": 1,\n    \"created_at\": \"2021-06-24T15:59:31.200028Z\",\n    \"disabled_at\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "The planet was renamed!",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Magnetica II\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/planet/12",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"planet",
+						"12"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "The planet was renamed!",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Magnetica II\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/planet/12",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"planet",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 13:30:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, GET, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 12,\n    \"name\": \"Magnetica II\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add pilots and their ships to the system",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fuel_capacity\": 180,\n    \"fuel_level\": 75,\n    \"weight_capacity\": 15,\n    \"pilot\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/ship",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"ship"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "empty post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/ship",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"ship"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 18:27:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "175"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fuel_capacity\": [\n        \"This field is required.\"\n    ],\n    \"fuel_level\": [\n        \"This field is required.\"\n    ],\n    \"weight_capacity\": [\n        \"This field is required.\"\n    ],\n    \"pilot\": [\n        \"This field is required.\"\n    ]\n}"
+				},
+				{
+					"name": "Add pilots and their ships to the system",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fuel_capacity\": 235,\n    \"fuel_level\": 150,\n    \"weight_capacity\": 48,\n    \"pilot\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/ship",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"ship"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 18:28:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"fuel_capacity\": 235,\n    \"fuel_level\": 150,\n    \"weight_capacity\": 48,\n    \"pilot\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "List pilots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/pilot",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"pilot"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List pilots",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/pilot",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 18:36:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "384"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"pilot_certification\": \"1321322\",\n        \"name\": \"Magnos Borba\",\n        \"age\": 25,\n        \"credits\": 0,\n        \"location_planet\": \"Jupiter I\",\n        \"created_at\": \"2021-06-23T18:26:34.496000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 2,\n        \"pilot_certification\": \"2547894\",\n        \"name\": \"Miss Corta\",\n        \"age\": 36,\n        \"credits\": 0,\n        \"location_planet\": \"Esmeralda X\",\n        \"created_at\": \"2021-06-23T18:35:57.402000Z\",\n        \"disabled_at\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Edit pilot",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"location_planet\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/pilot/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"pilot",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add credits",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"credits\": 60000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/pilot/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 19:17:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "191"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"pilot_certification\": \"1321322\",\n    \"name\": \"Cesar VII\",\n    \"age\": 25,\n    \"credits\": 60000,\n    \"location_planet\": \"Jupiter I\",\n    \"created_at\": \"2021-06-23T18:26:34.496000Z\",\n    \"disabled_at\": null\n}"
+				},
+				{
+					"name": "If you change the localtion planet of a pilot, according with the contract,  the credit will be discounted",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location_planet\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/pilot/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 17:14:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, GET, OPTIONS, DELETE"
+						},
+						{
+							"key": "Content-Length",
+							"value": "175"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"pilot_certification\": \"6231600\",\n    \"name\": \"Lilo\",\n    \"age\": 16,\n    \"credits\": 1995,\n    \"location_planet\": 7,\n    \"created_at\": \"2021-06-24T16:23:17.749000Z\",\n    \"disabled_at\": null\n}"
+				},
+				{
+					"name": "Oh no! you don't have funds to go to another planet!",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location_planet\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/pilot/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot",
+								"1"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 17:18:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS, DELETE, PUT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Insufficient funds\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete pilot",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/pilot/2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"pilot",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete pilot",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/pilot/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"pilot",
+								"2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 18:50:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, OPTIONS, PUT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List ships",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/ship",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"ship"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List ships",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/ship",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"ship"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 19:01:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"fuel_capacity\": 235,\n        \"fuel_level\": 150,\n        \"weight_capacity\": 48,\n        \"pilot\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Edit ships",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"weight_capacity\": 80\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/ship/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"ship",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Edit ships",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"weight_capacity\": 80\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/ship/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"ship",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 19:05:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"fuel_capacity\": 235,\n    \"fuel_level\": 150,\n    \"weight_capacity\": 80,\n    \"pilot\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete ships",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/ship/2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"ship",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete ships",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/ship/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"ship",
+								"2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 19:07:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Registry resources",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"water\",\n    \"weight\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/resource",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"resource"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "empty post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/resource",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"resource"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 19:26:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": [\n        \"This field is required.\"\n    ],\n    \"weight\": [\n        \"This field is required.\"\n    ]\n}"
+				},
+				{
+					"name": "Registry resources",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"carbon\",\n    \"weight\": 75\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/resource",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"resource"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 19:45:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"name\": \"carbon\",\n    \"weight\": 75,\n    \"created_at\": \"2021-06-23T19:45:34.365424Z\",\n    \"disabled_at\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "The resource is unavailable, we have to disable it",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/resource/2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"resource",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "The resource is unavailable",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/resource/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"resource",
+								"2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 16:06:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List resources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/resource",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"resource"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List resources",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/resource",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"resource"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 18:12:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1144"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"breadcom\",\n        \"weight\": 46,\n        \"created_at\": \"2021-06-24T18:11:27.501000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 2,\n        \"name\": \"signfood\",\n        \"weight\": 33,\n        \"created_at\": \"2021-06-24T18:11:27.502000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 3,\n        \"name\": \"fireTV\",\n        \"weight\": 44,\n        \"created_at\": \"2021-06-24T18:11:27.502000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 4,\n        \"name\": \"flamesignflame\",\n        \"weight\": 24,\n        \"created_at\": \"2021-06-24T18:11:27.503000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 5,\n        \"name\": \"puterwa\",\n        \"weight\": 95,\n        \"created_at\": \"2021-06-24T18:11:27.504000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 6,\n        \"name\": \"ercom of mermaid\",\n        \"weight\": 88,\n        \"created_at\": \"2021-06-24T18:11:27.504000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 7,\n        \"name\": \"CDrobot\",\n        \"weight\": 95,\n        \"created_at\": \"2021-06-24T18:11:27.505000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 8,\n        \"name\": \"milkair of fire\",\n        \"weight\": 96,\n        \"created_at\": \"2021-06-24T18:11:27.505000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 9,\n        \"name\": \"waterput of light\",\n        \"weight\": 53,\n        \"created_at\": \"2021-06-24T18:11:27.506000Z\",\n        \"disabled_at\": null\n    },\n    {\n        \"id\": 10,\n        \"name\": \"botsand of fire\",\n        \"weight\": 60,\n        \"created_at\": \"2021-06-24T18:11:27.506000Z\",\n        \"disabled_at\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Publish transport contracts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"botsand of fire to Telmia\",\n    \"origin_planet\": 9,\n    \"payload\": {\n        \"resources\": [\n            1\n        ]\n    },\n    \"destination_planet\": 2,\n    \"value\": 5000,\n    \"pilot\": 1,\n    \"travel\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/contract",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"contract"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "empty post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/contract",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jun 2021 19:12:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"description\": [\n        \"This field is required.\"\n    ],\n    \"origin_planet\": [\n        \"This field is required.\"\n    ],\n    \"destination_planet\": [\n        \"This field is required.\"\n    ],\n    \"value\": [\n        \"This field is required.\"\n    ]\n}"
+				},
+				{
+					"name": "Validate payload",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"gold to Venus\",\n    \"origin_planet\": \"Earth\",\n    \"payload\": {\"name\": \"sand\"},\n    \"destination_planet\": \"Venus\",\n    \"value\": 25000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/contract",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 00:26:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"payload\": [\n        \"Invalid payload key.\"\n    ]\n}"
+				},
+				{
+					"name": "Validate payload",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"gold to Venus\",\n    \"origin_planet\": \"Earth\",\n    \"payload\": {\"resources\": [\"gold\"]},\n    \"destination_planet\": \"Venus\",\n    \"value\": 25000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/contract",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 00:28:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"payload\": [\n        \"Invalid resource id.\"\n    ]\n}"
+				},
+				{
+					"name": "Publish transport contracts",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"gold and carbon to Venus\",\n    \"origin_planet\": \"Earth\",\n    \"payload\": {\"resources\": [4, 1]},\n    \"destination_planet\": \"Venus\",\n    \"value\": 25000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/contract",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 00:29:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "225"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"description\": \"gold and carbon to Venus\",\n    \"payload\": {\n        \"resources\": [\n            4,\n            1\n        ]\n    },\n    \"origin_planet\": \"Earth\",\n    \"destination_planet\": \"Venus\",\n    \"value\": 25000,\n    \"created_at\": \"2021-06-24T00:29:35.675649Z\",\n    \"disabled_at\": null\n}"
+				},
+				{
+					"name": "Validate payload",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"sand to Earth\",\n    \"origin_planet\": 4,\n    \"payload\": {\n        \"resources\": [\n            1\n        ]\n    },\n    \"destination_planet\": 7,\n    \"value\": 5000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/contract",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 16:23:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pilot\": [\n        \"This field is required.\"\n    ],\n    \"travel\": [\n        \"This field is required.\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit contract",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/contract/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"contract",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Edit contracts",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payload\": {\n        \"resources\": [\n            4,\n            2,\n            1\n        ]\n    },\n    \"description\": \"gold, oxygen and carbon to Venus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/contract/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 00:32:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, OPTIONS, DELETE, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "236"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"description\": \"gold, oxygen and carbon to Venus\",\n    \"payload\": {\n        \"resources\": [\n            4,\n            2,\n            1\n        ]\n    },\n    \"origin_planet\": 1,\n    \"destination_planet\": 5,\n    \"value\": 25000,\n    \"created_at\": \"2021-06-24T00:29:35.675000Z\",\n    \"disabled_at\": null\n}"
+				},
+				{
+					"name": "Finish contract - The pilot will be payed!",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/contract/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 20:08:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, DELETE, PUT, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "276"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"description\": \"botsand of fire to Telmia\",\n    \"payload\": {\n        \"resources\": [\n            1\n        ]\n    },\n    \"origin_planet\": 9,\n    \"destination_planet\": 2,\n    \"value\": 5000,\n    \"pilot\": 1,\n    \"travel\": 1,\n    \"status\": true,\n    \"created_at\": \"2021-06-24T19:59:15.890000Z\",\n    \"disabled_at\": \"2021-06-24T20:08:50.226905Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Disable contract",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/contract/2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"contract",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Disable contract",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/contract/2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract",
+								"2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 00:36:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, OPTIONS, DELETE, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List open contracts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/contract",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"contract"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List open contracts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/contract",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 16:05:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "200"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"description\": \"sand to Earth\",\n        \"payload\": {\n            \"resources\": [\n                3\n            ]\n        },\n        \"origin_planet\": 1,\n        \"destination_planet\": 5,\n        \"value\": 5000,\n        \"created_at\": \"2021-06-24T16:03:55.748000Z\",\n        \"disabled_at\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "I need more fuel!",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pilot\": 1,\n    \"value\": 8000,\n    \"location_planet\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/fuel_refill",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"fuel_refill"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "empty post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/fuel_refill",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"fuel_refill"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 18:28:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, GET, POST"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pilot\": [\n        \"This field is required.\"\n    ],\n    \"value\": [\n        \"This field is required.\"\n    ],\n    \"location_planet\": [\n        \"This field is required.\"\n    ]\n}"
+				},
+				{
+					"name": "Oh no, no money enough",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pilot\": 1,\n    \"value\": 8000,\n    \"location_planet\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/fuel_refill",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"fuel_refill"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 19:22:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Insufficient funds.\"\n}"
+				},
+				{
+					"name": "I need more fuel!",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pilot\": 1,\n    \"value\": 8000,\n    \"location_planet\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/fuel_refill",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"fuel_refill"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 19:54:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 7,\n    \"pilot\": 1,\n    \"value\": 8000,\n    \"location_planet\": 3,\n    \"created_at\": \"2021-06-24T19:54:54.363394Z\",\n    \"disabled_at\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Total weight in tons of each resource sent and received by each planet.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/report/resource_weight",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"report",
+						"resource_weight"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Total weight in tons of each resource sent and received by each planet.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/report/resource_weight",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"report",
+								"resource_weight"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 20:43:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "469"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"catmia\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    },\n    {\n        \"telmia\": {\n            \"sent\": {},\n            \"received\": {\n                \"breadcom\": 46\n            }\n        }\n    },\n    {\n        \"tucarda X\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    },\n    {\n        \"lustagni B\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    },\n    {\n        \"saturnes\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    },\n    {\n        \"hyphobos\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    },\n    {\n        \"leonisnoe\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    },\n    {\n        \"benzar X\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    },\n    {\n        \"thosli\": {\n            \"sent\": {\n                \"breadcom\": 46\n            },\n            \"received\": {}\n        }\n    },\n    {\n        \"telmiapia V\": {\n            \"sent\": {},\n            \"received\": {}\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Percentage of resource type transported by each pilot.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/report/resource_percentage",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"report",
+						"resource_percentage"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Percentage of resource type transported by each pilot.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/report/resource_percentage",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"report",
+								"resource_percentage"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jun 2021 21:05:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"Lilo\": {\n            \"breadcom\": \"100%\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Intergalactic Federation transactions ledger sorted by date (oldest to newest).",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/report/transactions",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"report",
+						"transactions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Intergalactic Federation transactions ledger sorted by date (oldest to newest).",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/report/transactions",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"report",
+								"transactions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Jun 2021 02:20:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, GET"
+						},
+						{
+							"key": "Content-Length",
+							"value": "268"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Lilo bought fuel: +₭80.0\",\n    \"Lilo bought fuel: +₭80.0\",\n    \"Lilo bought fuel: +₭80.0\",\n    \"Lilo bought fuel: +₭80.0\",\n    \"Lilo bought fuel: +₭80.0\",\n    \"Lilo bought fuel: +₭80.0\",\n    \"Contract 1 Description botsand of fire to Telmia paid: -₭50.0\"\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "{{galaxy}}"
+		}
+	]
+}
