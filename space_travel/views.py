@@ -1,7 +1,7 @@
 import datetime
 import subprocess
 from django.shortcuts import render
-
+from itertools import chain
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
@@ -421,7 +421,6 @@ def report_resource_percentage(request):
         resources_total = dict()
         for pilot in Pilot.objects.all():
             for resource in Resource.objects.all():
-                
                 contracts = Contract.objects.filter(disabled_at__isnull=False, pilot=pilot.id)
                 for contract in contracts:
                     resources = contract.payload['resources']
@@ -448,8 +447,17 @@ def report_resource_percentage(request):
 
 
 @api_view(['GET'])
-def report_contracts(request):
+def report_transactions(request):
     if request.method == 'GET':
-        Contract.objects.all()
+        report = list()
+        contracts = Contract.objects.all().order_by('created_at')
+        fuel_refills = FuelRefill.objects.all().order_by('created_at')
+        transactions = sorted(chain(contracts, fuel_refills), key=lambda instance: instance.created_at)
+        for t in transactions:
+            if t.__class__ == FuelRefill:
+                report.append("{} bought fuel: +₭{}".format(t.pilot.name, (t.value/100)))
+            else:
+                report.append("Contract {} Description {} paid: -₭{}".format(t.id, t.description, (t.value/100)))
+        return JsonResponse(report, status=status.HTTP_200_OK, safe=False)
     else:
         return JsonResponse({'message': 'Method not allowed.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)

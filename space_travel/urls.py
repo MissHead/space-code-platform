@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^fuel_refill/(?P<_id>[0-9]+)$', views.fuel_refill_handle),
     url(r'^report/resource_weight$', views.report_resource_weight),
     url(r'^report/resource_percentage$', views.report_resource_percentage),
-    url(r'^report/contracts$', views.report_contracts),
+    url(r'^report/transactions$', views.report_transactions),
 ]
